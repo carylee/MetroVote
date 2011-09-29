@@ -7,6 +7,11 @@ gem 'rails', '3.0.9'
 
 gem 'sqlite3'
 
+gem 'omniauth', :require => 'omniauth/oauth'
+gem 'twitter'
+gem 'rbing'
+gem 'koala'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
