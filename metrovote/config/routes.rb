@@ -1,4 +1,6 @@
 Metrovote::Application.routes.draw do
+  resources :positions
+
   resources :candidates
 
   # The priority is based upon order of creation:
