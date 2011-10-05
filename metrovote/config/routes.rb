@@ -1,4 +1,6 @@
 Metrovote::Application.routes.draw do
+  resources :elections
+
   resources :positions
 
   resources :candidates
