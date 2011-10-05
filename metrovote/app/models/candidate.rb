@@ -3,6 +3,8 @@ require 'rbing'
 
 class Candidate < ActiveRecord::Base
   belongs_to :position
+  has_many :tweets
+  has_many :articles
 
   def get_tweets
     Twitter.user_timeline(self.twitter).each do |tweet|
@@ -43,7 +45,7 @@ class Candidate < ActiveRecord::Base
   end
 
   def self.fetch_data
-    self.all.each do |candidate|
+    self.find_each do |candidate|
       candidate.get_articles
       candidate.get_tweets
     end
