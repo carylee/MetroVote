@@ -2,6 +2,9 @@
 
 <table>
   <tr>
+    <th></th>
+    <th></th>
+    <th></th>
     <th>Name</th>
     <th>Bio</th>
     <th>Photo</th>
@@ -10,13 +13,13 @@
     <th>Position</th>
     <th>Twitter</th>
     <th>Facebook</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @candidates.each do |candidate| %>
   <tr>
+    <td><%= link_to 'Show', candidate %></td>
+    <td><%= link_to 'Edit', edit_candidate_path(candidate) %></td>
+    <td><%= link_to 'Destroy', candidate, :confirm => 'Are you sure?', :method => :delete %></td>
     <td><%= candidate.name %></td>
     <td><%= candidate.bio %></td>
     <td><%= candidate.photo %></td>
@@ -25,9 +28,6 @@
     <td><%= candidate.position %></td>
     <td><%= candidate.twitter %></td>
     <td><%= candidate.facebook %></td>
-    <td><%= link_to 'Show', candidate %></td>
-    <td><%= link_to 'Edit', edit_candidate_path(candidate) %></td>
-    <td><%= link_to 'Destroy', candidate, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

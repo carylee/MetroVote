@@ -40,6 +40,27 @@
   <%= @candidate.facebook %>
 </p>
 
+<h3>Tweets</h3>
+<table>
+  <tr><th>Date</th><th>Tweet</th></tr>
+<% @candidate.tweets.each do |c| %>
+  <tr>
+    <td><%= c.created %></td>
+    <td><%= c.text %></td>
+<% end %>
+</table>
+
+<h3>Articles</h3>
+<table>
+  <tr><th>Date</th><th>Title</th><th>URL</th><tr>
+<% @candidate.articles.each do |a| %>
+  <tr>
+    <td><%= a.date %></td>
+    <td><%= a.title %></td>
+    <td><%= a.url %></td>
+  </tr>
+<%end%>
+</table>
 
 <%= link_to 'Edit', edit_candidate_path(@candidate) %> |
 <%= link_to 'Back', candidates_path %>
