@@ -13,7 +13,7 @@ class Candidate < ActiveRecord::Base
         @t = Tweet.new(:tweet_id => tweet.id_str,
                        :text => tweet.text,
                        :candidate_id => self.id,
-                       :created => created_at)
+                       :created => created)
         @t.save
       end
     end
