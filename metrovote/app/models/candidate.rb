@@ -2,7 +2,7 @@ require 'twitter'
 require 'rbing'
 
 class Candidate < ActiveRecord::Base
-  belongs_to :position
+  #belongs_to :position
   has_many :tweets
   has_many :articles
 
@@ -22,18 +22,25 @@ class Candidate < ActiveRecord::Base
   def get_articles
     bing = RBing.new("E08C094B36831A4E20810A668B43265D1941F8FE")
     rsp = bing.news(self.name + " " + "seattle")
-    rsp.news.results.each do |article|
-      created = DateTime.parse(article.Date)
-      unless Article.exists?(["url=?", article.Url])
-        @a = Article.new(:title => article.Title,
-                         :snippet => article.Snippet,
-                         :url => article.Url,
-                         :date => created,
-                         :source => article.Source,
-                         :candidate_id => self.id)
-        @a.save
+    if rsp.respond_to? 'news'
+      rsp.news.results.each do |article|
+        created = DateTime.parse(article.Date)
+        unless Article.exists?(["url=?", article.Url])
+          @a = Article.new(:title => article.Title,
+                           :snippet => article.Snippet,
+                           :url => article.Url,
+                           :date => created,
+                           :source => article.Source,
+                           :candidate_id => self.id)
+          @a.save
+        end
       end
     end
+  end
+
+  def fetch_data
+    get_articles
+    get_tweets
   end
 
   def self.get_tweets

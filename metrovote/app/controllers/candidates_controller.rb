@@ -44,6 +44,7 @@ class CandidatesController < ApplicationController
 
     respond_to do |format|
       if @candidate.save
+        @candidate.fetch_data
         format.html { redirect_to(@candidate, :notice => 'Candidate was successfully created.') }
         format.xml  { render :xml => @candidate, :status => :created, :location => @candidate }
       else

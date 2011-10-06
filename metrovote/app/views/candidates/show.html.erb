@@ -46,7 +46,7 @@
 <% @candidate.tweets.each do |c| %>
   <tr>
     <td><%= c.created %></td>
-    <td><%= c.text %></td>
+    <td><%= auto_link(c.text).html_safe %></td>
 <% end %>
 </table>
 
@@ -57,7 +57,7 @@
   <tr>
     <td><%= a.date %></td>
     <td><%= a.title %></td>
-    <td><%= a.url %></td>
+    <td><%= auto_link(a.url).html_safe %></td>
   </tr>
 <%end%>
 </table>
