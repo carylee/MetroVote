@@ -1,0 +1,57 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  =@candidate.name
+
+%p
+  %b Bio:
+  =@candidate.bio
+
+%p
+  %b Photo:
+  =@candidate.photo
+
+%p
+  %b Website:
+  =@candidate.website
+
+%p
+  %b Email:
+  =@candidate.email
+
+%p
+  %b Position:
+  =@candidate.position
+
+%p
+  %b Twitter:
+  =@candidate.twitter
+
+%p
+  %b Facebook:
+  =@candidate.facebook
+
+%h3 Tweets
+%table
+  %tr
+    %th Date
+    %th Tweet
+  - @candidate.tweets.each do |c|
+    %tr
+      %td= c.created
+      %td=auto_link(c.text).html_safe
+
+%h3 Articles
+%table
+  %tr
+    %th Date
+    %th Title
+    %th URL
+  - @candidate.articles.each do |article|
+    %tr
+      %td= article.date
+      %td= article.title
+      %td= auto_link(article.url).html_safe
+= link_to 'Edit', edit_candidate_path(@candidate)
+= link_to 'Back', candidates_path
