@@ -1,0 +1,36 @@
+@charset "UTF-8";
+/* CSS Document */
+
+div.container {
+	width:800;
+	background-color:red;
+	
+	border-style:solid;
+	border-color:blue;
+	border-width:5px
+}
+
+div.candidate {
+	width:35%;
+	
+	border-style:solid;
+	border-color:black;
+	border-width:5px;
+	
+	
+}
+
+#can1 {
+	float:left;
+}
+
+#can2 {
+	float:right;
+}
+
+
+div.news{
+	width:15%;
+	background-color:yellow;
+	
+}
