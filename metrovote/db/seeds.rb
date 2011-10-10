@@ -30,6 +30,7 @@ Candidate.create(:name => "Bobby Forch",
                  :position_id => position1.id,
                  :facebook => "http://www.facebook.com/pages/Bobby-Forch/80010933301",
                  :email => "forchforcouncil@gmail.com",
+                 :phone => "(206) 325‑5013",
                  :photo => "http://washingtonbus.org/blog/blog-images/forch.jpg"
                 )
 
@@ -40,16 +41,19 @@ Candidate.create(:name => "Jean Godden",
                  :position_id => position1.id,
                  :facebook => "http://www.facebook.com/reelectjeangodden",
                  :email => "info@jeangodden.com",
-                 :photo => ""
+                 :phone => "(206) 382‑5552",
+                 :photo => "http://wedgwoodcc.org/wp-content/uploads/2011/02/godden.jpg"
                 )
 
 Candidate.create(:name => "Bruce Harrell",
                  :website => "http://www.electbruceharrell.com",
+                 :bio => "Bruce A. Harrell (born 1958) is currently serving as a member of the Seattle City Council. He was first elected in 2007 from a field of five candidates. He is currently Chair of the Energy, Technology, and Civil Rights Committee and is responsible for oversight of Seattle City Light, the city’s public power utility and the city’s Department of Information and Technology. Harrell is Vice Chair of Public Utilities & Neighborhoods and member of Parks & Seattle Center. He sits on the Executive Board for the Puget Sound Regional Council and is a member of the Puget Sound Regional Transportation Policy Board. Bruce Harrell also sits on the King County Flood Control Zone Advisory Committee and the Fire Facilities Oversight Committee.",
                  :twitter => "bruceharrell",
                  :position_id => position3.id,
                  :facebook => "http://www.facebook.com/bruceharrell",
                  :email => "bruceharrell2011@gmail.com",
-                 :photo => ""
+                 :phone => "(206) 817‑5155",
+                 :photo => "http://www.edgeonthenet.com/display/viewimage_story.php?id=119836"
                 )
 
 Candidate.create(:name => "Brad Meacham",
@@ -57,8 +61,9 @@ Candidate.create(:name => "Brad Meacham",
                  :position_id => position3.id,
                  :twitter => "bradmeacham",
                  :facebook => "http://www.facebook.com/electbradmeacham",
+                 :phone => "(206) 491‑0430",
                  :email => "forchforcouncil@gmail.com",
-                 :photo => ""
+                 :photo => "http://seattletransitblog.com/wp-content/uploads/2011/07/meacham.png"
                 )
 
 Candidate.create(:name => "Dale L. Pusey",
@@ -66,6 +71,7 @@ Candidate.create(:name => "Dale L. Pusey",
                  :twitter => "dalepusey",
                  :position_id => position5.id,
                  :facebook => "http://www.facebook.com/pages/People-for-Dale-Pusey/210451178991456",
+                 :phone => "(941) 545‑5556",
                  :email => "dale.pusey@clearwire.net",
                  :photo => "http://www.dalepusey.com/images/dale2.jpg"
                 )
@@ -76,6 +82,7 @@ Candidate.create(:name => "Tom Rasmussen",
                  :position_id => position5.id,
                  :facebook => "http://www.facebook.com/pages/Tom-Rasmussen-for-Seattle-City-Council/133544566715511",
                  :email => "info@tom4seattle.com",
+                 :phone => "206-856-2149",
                  :photo => "http://tom4seattle.com/images/uploaded/bio.jpg"
                 )
 				
@@ -85,6 +92,7 @@ Candidate.create(:name => "Tim Burgess",
                  :twitter => "ElectTimBurgess",
                  :facebook => "http://www.facebook.com/pages/Elect-Tim-Burgess/151303868270933",
                  :email => "info@electtimburgess.com",
+                 :phone => "(206)601-8227",
                  :photo => "http://electtimburgess.com/images/tim-head.jpg"
                 )
 				
@@ -94,6 +102,7 @@ Candidate.create(:name => "David L. Schraer",
                  :twitter => "",
                  :facebook => "http://www.facebook.com/pages/David-For-Seattle/225560587477278?sk=wall",
                  :email => "david@inplainair.com",
+                 :phone => "(206)723-5376",
                  :photo => ""
                 )
 				
@@ -103,6 +112,7 @@ Candidate.create(:name => "Sally Clark",
                  :twitter => "sally4council",
                  :facebook => "http://www.facebook.com/votesally",
                  :email => "info@electsallyclark.com",
+                 :phone => "(206) 235-0363",
                  :photo => ""
                 )
 				
@@ -112,5 +122,6 @@ Candidate.create(:name => "Dian Ferguson",
                  :position_id => position9.id,
                  :facebook => "http://www.facebook.com/pages/Elect-Dian-Ferguson/154297187967305",
                  :email => "logan@dianferguson.com",
+                 :phone => "206-478-4471",
                  :photo => ""
                 )

@@ -13,8 +13,8 @@
               %a{:href => @candidate1.website, :target => "_blank"} Campaign Page
               |
               = mail_to @candidate1.email, "Email"
-              -#| 
-              -#= @candidate1.phone_number
+              |
+              = @candidate1.phone
           %img.portrait{:src => @candidate1.photo }/
           .bio
             %p= @candidate1.bio
@@ -27,7 +27,8 @@
           - @position.candidates.each do |candidate|
             - candidate.articles.each do |article|
               #story1.story
-                %p= link_to article.title, article.url
+                %h3= link_to article.title, article.url
+                %p= article.snippet
       .span6
         #can2.candidate
           %h1= @candidate2.name
@@ -36,7 +37,8 @@
               %a{:href => @candidate2.website, :target => "_blank"} Campaign Page
               |
               = mail_to @candidate2.email, "Email"
-              -#| 206-382-5552
+              |
+              = @candidate2.phone
           %img.portrait{:src => @candidate2.photo}/
           .bio.can2
             %p= @candidate2.bio
