@@ -58,6 +58,7 @@ Candidate.create(:name => "Bruce Harrell",
 
 Candidate.create(:name => "Brad Meacham",
                  :website => "http://www.electbradmeacham.com",
+                 :bio => "Brad is a third-generation Washingtonian who has always been deeply engaged in Seattle – following key civic issues and voting absentee even while he lived abroad. He served on the board of the Municipal League of King County for three years and was elected chairman twice. He is currently in his fifth year on the board of Richard Hugo House and has also been a member of the Eastlake Community Council. In addition, he recently completed a Master of Public Administration (M.P.A.) degree from the Evans School at the University of Washington.",
                  :position_id => position3.id,
                  :twitter => "bradmeacham",
                  :facebook => "http://www.facebook.com/electbradmeacham",
@@ -68,6 +69,7 @@ Candidate.create(:name => "Brad Meacham",
 
 Candidate.create(:name => "Dale L. Pusey",
                  :website => "http://www.dalepusey.com",
+                 :bio => "Dale Pusey is a 32 year-old accountant and West Seattleite running for Seattle City Council Position 5 as the sole challenger against two-term incumbent Tom Rasmussen. Johnathon Fitzpatrick spoke to him for seattlepi.com and Pusey discussed his beef with the Council on transit and his idea to preserve the Alaskan Way Viaduct as a park.",
                  :twitter => "dalepusey",
                  :position_id => position5.id,
                  :facebook => "http://www.facebook.com/pages/People-for-Dale-Pusey/210451178991456",
@@ -78,6 +80,7 @@ Candidate.create(:name => "Dale L. Pusey",
 
 Candidate.create(:name => "Tom Rasmussen",
                  :website => "http://tom4seattle.com/",
+                 :bio => "Tom Rasmussen is a member of the Seattle City Council, first elected in 2003. Between September 2004 and December 2007 he was chair of the Housing, Human Services & Health Committee, vice chair of the Urban Development & Planning Committee, and a member of the Transportation Committee. On January 7, 2008 Tom was sworn in for his second term on City Council. From January 2008 through December 2009, he was chair of the Parks & Seattle Center Committee, the vice chair of the Culture, Civil Rights, Heath and Personnel Committee, and the Labor Policy Committee. He is currently chair of the Transportation Committee, vice chair of the Parks and Seattle Center Committee, and a member of the Housing, Human Services, Health, and Culture Committee.",
                  :twitter => "Tom4Seattle",
                  :position_id => position5.id,
                  :facebook => "http://www.facebook.com/pages/Tom-Rasmussen-for-Seattle-City-Council/133544566715511",
@@ -88,6 +91,7 @@ Candidate.create(:name => "Tom Rasmussen",
 
 Candidate.create(:name => "Tim Burgess",
                  :website => "http://www.electtimburgess.com/",
+                 :bio => "Tim Burgess is a member of the Seattle City Council, former journalist, Seattle Police Department detective and international humanitarian worker. Burgess was elected in November, 2007 with 64% of the vote. He assumed office on January 1, 2008 and his term expires December 31, 2011. Burgess chairs the Public Safety and Education Committee and co-chairs the Built Environment Committee, Domestic Violence Prevention Council and the Family and Education Levy Oversight Committee. Prior to his election to the City Council, Burgess chaired his neighborhood community council and served 12 years on Seattle's Ethics and Elections Commission.",
                  :position_id => position7.id,
                  :twitter => "ElectTimBurgess",
                  :facebook => "http://www.facebook.com/pages/Elect-Tim-Burgess/151303868270933",
@@ -98,30 +102,33 @@ Candidate.create(:name => "Tim Burgess",
 
 Candidate.create(:name => "David L. Schraer",
                  :website => "http://davidforseattle.com/",
+                 :bio => "My name is David Schraer and I am running for Seattle City Council position seven. An architect, small business owner, community development professional and long-time political activist, I will bring unique perspective to the council which can be summarized as short-term pragmatism coupled with long-term idealism. Here is my story.",
                  :position_id => position7.id,
                  :twitter => "",
                  :facebook => "http://www.facebook.com/pages/David-For-Seattle/225560587477278?sk=wall",
                  :email => "david@inplainair.com",
                  :phone => "(206)723-5376",
-                 :photo => ""
+                 :photo => "https://lh5.googleusercontent.com/-BjFGERGrSbI/AAAAAAAAAAI/AAAAAAAAAYY/g7VO9DuOZz4/photo.jpg"
                 )
 
 Candidate.create(:name => "Sally Clark",
                  :website => "http://electsallyclark.com/",
+                 :bio => "Sally J. Clark is a member of the Seattle City Council, appointed to fill the vacant seat formerly occupied by Jim Compton in January 2006. She was elected to a one-year term in November 2006 and a four year term in 2007. Clark chairs the Planning, Land Use, and Neighborhoods committees. She used to be a legislative aide to former City Councilwoman Tina Podlodowski, and worked as a legislative aide to King County Councilmember Bob Ferguson before joining Lifelong AIDS Alliance as director of community resources. At Lifelong AIDS Alliance Sally oversaw public policy and advocacy, HIV prevention education, volunteer recruitment and training, and insurance premium payment assistance. Clark was an editor for the Seattle Gay News and has written for The Advocate. She is an open lesbian.",
                  :position_id => position9.id,
                  :twitter => "sally4council",
                  :facebook => "http://www.facebook.com/votesally",
                  :email => "info@electsallyclark.com",
                  :phone => "(206) 235-0363",
-                 :photo => ""
+                 :photo => "http://wpcnet.org/end_uploads/sally_clark.jpg"
                 )
 
 Candidate.create(:name => "Dian Ferguson",
+                 :bio => "My vision is of a Seattle where everyone belongs, and where no individual and no neighborhood is left behind. It is a place where small businesses thrive, and where children and youth are well-educated. In my vision public safety is front and center, police are accountable to the public as public servants, and we have a commitment to that larger something which comes through shared effort and mutual benefit. I am up for the challenge. My skills, knowledge and experience set me apart from the business-as-usual conversations and solutions that dominate Seattle City Council. This is why I have decided to run. I need your support through dollars, time, endorsements, commitment and prayers to change the course of Seattle’s current direction.",
                  :website => "http://www.dianferguson.com/",
                  :twitter => "electdian",
                  :position_id => position9.id,
                  :facebook => "http://www.facebook.com/pages/Elect-Dian-Ferguson/154297187967305",
                  :email => "logan@dianferguson.com",
                  :phone => "206-478-4471",
-                 :photo => ""
+                 :photo => "http://hphotos-sea1.fbcdn.net/hphotos-snc6/231196_160441710686186_154297187967305_382078_8147866_n.jpg"
                 )
