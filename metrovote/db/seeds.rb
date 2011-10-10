@@ -85,7 +85,7 @@ Candidate.create(:name => "Tom Rasmussen",
                  :phone => "206-856-2149",
                  :photo => "http://tom4seattle.com/images/uploaded/bio.jpg"
                 )
-				
+
 Candidate.create(:name => "Tim Burgess",
                  :website => "http://www.electtimburgess.com/",
                  :position_id => position7.id,
@@ -95,7 +95,7 @@ Candidate.create(:name => "Tim Burgess",
                  :phone => "(206)601-8227",
                  :photo => "http://electtimburgess.com/images/tim-head.jpg"
                 )
-				
+
 Candidate.create(:name => "David L. Schraer",
                  :website => "http://davidforseattle.com/",
                  :position_id => position7.id,
@@ -105,7 +105,7 @@ Candidate.create(:name => "David L. Schraer",
                  :phone => "(206)723-5376",
                  :photo => ""
                 )
-				
+
 Candidate.create(:name => "Sally Clark",
                  :website => "http://electsallyclark.com/",
                  :position_id => position9.id,
@@ -115,7 +115,7 @@ Candidate.create(:name => "Sally Clark",
                  :phone => "(206) 235-0363",
                  :photo => ""
                 )
-				
+
 Candidate.create(:name => "Dian Ferguson",
                  :website => "http://www.dianferguson.com/",
                  :twitter => "electdian",
