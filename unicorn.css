@@ -1,36 +1,63 @@
 @charset "UTF-8";
 /* CSS Document */
 
-div.container {
-	width:800;
-	background-color:red;
-	
-	border-style:solid;
-	border-color:blue;
-	border-width:5px
+/*div.container {
+}*/
+
+html, body {
+  background-color: #eee;
 }
 
 div.candidate {
-	width:35%;
-	
-	border-style:solid;
-	border-color:black;
-	border-width:5px;
-	
-	
+  /*border: 1px solid gray;*/
+  padding: 5px;
 }
 
-#can1 {
-	float:left;
+div.candidate img.portrait {
+  width: 200px;
+  padding-bottom: 10px;
 }
 
-#can2 {
-	float:right;
+#can1 div.contact, #can1 h1 {
+  text-align: right;
 }
 
-
-div.news{
-	width:15%;
-	background-color:yellow;
-	
+#can1 img.portrait {
+  float:right;
+  padding-left: 10px;
 }
+
+#can2 img.portrait {
+  float:left;
+  padding-right: 10px;
+}
+
+#news {
+  margin-top: 90px;
+  text-align: center;
+}
+
+.content {
+  background: rgba(255,255,255,0.9);
+  padding: 5px;
+  margin: -5px;
+  margin-top: 45px;
+  -webkit-border-radius: 0 0 6px 6px;
+   -moz-border-radius: 0 0 6px 6px;
+        border-radius: 0 0 6px 6px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+        box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
+div.socialmedia {
+  clear:both;
+}
+
+/*div.news{
+  background-color:yellow;
+  border-style:solid;
+  border-color:black;
+  border-width:5px;
+  padding:15px;
+}*/
