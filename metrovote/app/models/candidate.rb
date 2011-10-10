@@ -7,14 +7,16 @@ class Candidate < ActiveRecord::Base
   has_many :articles
 
   def get_tweets
-    Twitter.user_timeline(self.twitter).each do |tweet|
-      created = DateTime.parse(tweet.created_at)
-      unless Tweet.exists?(["tweet_id=?", tweet.id_str])
-        @t = Tweet.new(:tweet_id => tweet.id_str,
-                       :text => tweet.text,
-                       :candidate_id => self.id,
-                       :created => created)
-        @t.save
+    if self.twitter != ""
+      Twitter.user_timeline(self.twitter).each do |tweet|
+        created = DateTime.parse(tweet.created_at)
+        unless Tweet.exists?(["tweet_id=?", tweet.id_str])
+          @t = Tweet.new(:tweet_id => tweet.id_str,
+                         :text => tweet.text,
+                         :candidate_id => self.id,
+                         :created => created)
+          @t.save
+        end
       end
     end
   end
@@ -22,7 +24,7 @@ class Candidate < ActiveRecord::Base
   def get_articles
     bing = RBing.new("E08C094B36831A4E20810A668B43265D1941F8FE")
     rsp = bing.news(self.name + " " + "seattle")
-    if rsp.respond_to? 'news'
+    if rsp.key? 'News'
       rsp.news.results.each do |article|
         created = DateTime.parse(article.Date)
         unless Article.exists?(["url=?", article.Url])
