@@ -14,6 +14,8 @@ class PositionsController < ApplicationController
   # GET /positions/1.xml
   def show
     @position = Position.find(params[:id])
+    @candidate1 = @position.candidates[0]
+    @candidate2 = @position.candidates[1]
 
     respond_to do |format|
       format.html # show.html.erb
