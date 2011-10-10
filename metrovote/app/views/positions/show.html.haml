@@ -26,7 +26,7 @@
         #news.news
           - @position.candidates.each do |candidate|
             - candidate.articles.each do |article|
-              #story1.story
+              .story
                 %h3= link_to article.title, article.url
                 %p= article.snippet
       .span6
