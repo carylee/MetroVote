@@ -10,12 +10,14 @@ class Candidate < ActiveRecord::Base
     if self.twitter != ""
       Twitter.user_timeline(self.twitter).each do |tweet|
         created = DateTime.parse(tweet.created_at)
-        unless Tweet.exists?(["tweet_id=?", tweet.id_str])
-          @t = Tweet.new(:tweet_id => tweet.id_str,
-                         :text => tweet.text,
-                         :candidate_id => self.id,
-                         :created => created)
-          @t.save
+        if tweet.in_reply_to_user_id.nil?
+          unless Tweet.exists?(["tweet_id=?", tweet.id_str])
+            @t = Tweet.new(:tweet_id => tweet.id_str,
+                           :text => tweet.text,
+                           :candidate_id => self.id,
+                           :created => created)
+            @t.save
+          end
         end
       end
     end
