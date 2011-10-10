@@ -41,9 +41,13 @@ div.candidate img.portrait {
 }
 
 #news div.story h3 {
-  font-size: 120%;
+  font-size: 110%;
   line-height: 20px;
   margin: 8px 0px;
+}
+
+#news div.story p {
+  font-size: 90%;
 }
 
 #can2 img.portrait {
