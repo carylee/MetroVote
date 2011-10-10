@@ -11,6 +11,7 @@ gem 'omniauth', :require => 'omniauth/oauth'
 gem 'twitter'
 gem 'rbing'
 gem 'koala'
+gem 'haml'
 
 # Use unicorn as the web server
 # gem 'unicorn'
