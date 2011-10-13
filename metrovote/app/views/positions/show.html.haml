@@ -1,16 +1,18 @@
-.topbar
-  .fill
-    .container
-      %a.brand{:href => "http://metrovote.caryme.com"} MetroVote
 .container
   .content
+    %ul.breadcrumb
+      %li
+        %a{:href => '/positions'} Seattle City Council
+        %span.divider /
+      %li
+        %a{:href => '/positions/' + @position.id.to_s}= @position.title
     .row
       .span6
         #can1.candidate
           %h1= @candidate1.name
           .contact
             %p
-              %a{:href => @candidate1.website, :target => "_blank"} Campaign Page
+              %a{:href => @candidate2.website, :target => "_blank"} Campaign Page
               |
               = mail_to @candidate1.email, "Email"
               |
