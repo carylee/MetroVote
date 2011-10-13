@@ -51,8 +51,48 @@ div.candidate img.portrait {
 }
 
 #can2 img.portrait {
-  float:left;
+  float: left;
   padding-right: 10px;
+}
+
+.position .name {
+  width: 430px;
+}
+
+.position {
+  padding: 40px 0px;
+  line-height: 45px;
+  vertical-align: middle;
+  height: 40px;
+  display: block;
+  font-size: 200%;
+}
+
+a.position {
+  text-decoration: none;
+}
+
+a.position:hover {
+  text-decoration: none;
+}
+
+.position .right {
+  text-align: left;
+  float: right;
+  padding-left: 10px;
+}
+
+.position .left {
+  text-align: right;
+  float: left;
+  padding-right: 10px;
+}
+
+.position .number {
+  width: 50px;
+  margin: auto;
+  text-align: center;
+  font-size: 400%;
 }
 
 #news {
