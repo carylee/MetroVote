@@ -30,7 +30,7 @@ Candidate.create(:name => "Bobby Forch",
                  :position_id => position1.id,
                  :facebook => "http://www.facebook.com/pages/Bobby-Forch/80010933301",
                  :email => "forchforcouncil@gmail.com",
-                 :phone => "(206) 325‑5013",
+				 :phone => "(555) 555-5555"
                  :photo => "http://washingtonbus.org/blog/blog-images/forch.jpg"
                 )
 
@@ -41,7 +41,7 @@ Candidate.create(:name => "Jean Godden",
                  :position_id => position1.id,
                  :facebook => "http://www.facebook.com/reelectjeangodden",
                  :email => "info@jeangodden.com",
-                 :phone => "(206) 382‑5552",
+				 :phone => "(555) 555-5555"
                  :photo => "http://wedgwoodcc.org/wp-content/uploads/2011/02/godden.jpg"
                 )
 
@@ -52,18 +52,18 @@ Candidate.create(:name => "Bruce Harrell",
                  :position_id => position3.id,
                  :facebook => "http://www.facebook.com/bruceharrell",
                  :email => "bruceharrell2011@gmail.com",
-                 :phone => "(206) 817‑5155",
+				 :phone => "(555) 555-5555"
                  :photo => "http://www.edgeonthenet.com/display/viewimage_story.php?id=119836"
                 )
 
 Candidate.create(:name => "Brad Meacham",
                  :website => "http://www.electbradmeacham.com",
-                 :bio => "Brad is a third-generation Washingtonian who has always been deeply engaged in Seattle – following key civic issues and voting absentee even while he lived abroad. He served on the board of the Municipal League of King County for three years and was elected chairman twice. He is currently in his fifth year on the board of Richard Hugo House and has also been a member of the Eastlake Community Council. In addition, he recently completed a Master of Public Administration (M.P.A.) degree from the Evans School at the University of Washington.",
+                 :bio => "Brad is a third-generation Washingtonian who has always been deeply engaged in Seattle - following key civic issues and voting absentee even while he lived abroad. He served on the board of the Municipal League of King County for three years and was elected chairman twice. He is currently in his fifth year on the board of Richard Hugo House and has also been a member of the Eastlake Community Council. In addition, he recently completed a Master of Public Administration (M.P.A.) degree from the Evans School at the University of Washington.",
                  :position_id => position3.id,
                  :twitter => "bradmeacham",
                  :facebook => "http://www.facebook.com/electbradmeacham",
-                 :phone => "(206) 491‑0430",
                  :email => "forchforcouncil@gmail.com",
+				 :phone => "(555) 555-5555"
                  :photo => "http://seattletransitblog.com/wp-content/uploads/2011/07/meacham.png"
                 )
 
@@ -73,8 +73,8 @@ Candidate.create(:name => "Dale L. Pusey",
                  :twitter => "dalepusey",
                  :position_id => position5.id,
                  :facebook => "http://www.facebook.com/pages/People-for-Dale-Pusey/210451178991456",
-                 :phone => "(941) 545‑5556",
                  :email => "dale.pusey@clearwire.net",
+				 :phone => "(555) 555-5555"
                  :photo => "http://www.dalepusey.com/images/dale2.jpg"
                 )
 
@@ -85,7 +85,7 @@ Candidate.create(:name => "Tom Rasmussen",
                  :position_id => position5.id,
                  :facebook => "http://www.facebook.com/pages/Tom-Rasmussen-for-Seattle-City-Council/133544566715511",
                  :email => "info@tom4seattle.com",
-                 :phone => "206-856-2149",
+				 :phone => "(555) 555-5555"
                  :photo => "http://tom4seattle.com/images/uploaded/bio.jpg"
                 )
 
@@ -96,7 +96,7 @@ Candidate.create(:name => "Tim Burgess",
                  :twitter => "ElectTimBurgess",
                  :facebook => "http://www.facebook.com/pages/Elect-Tim-Burgess/151303868270933",
                  :email => "info@electtimburgess.com",
-                 :phone => "(206)601-8227",
+				 :phone => "(555) 555-5555"
                  :photo => "http://electtimburgess.com/images/tim-head.jpg"
                 )
 
@@ -107,7 +107,7 @@ Candidate.create(:name => "David L. Schraer",
                  :twitter => "",
                  :facebook => "http://www.facebook.com/pages/David-For-Seattle/225560587477278?sk=wall",
                  :email => "david@inplainair.com",
-                 :phone => "(206)723-5376",
+				 :phone => "(555) 555-5555"
                  :photo => "https://lh5.googleusercontent.com/-BjFGERGrSbI/AAAAAAAAAAI/AAAAAAAAAYY/g7VO9DuOZz4/photo.jpg"
                 )
 
@@ -118,7 +118,7 @@ Candidate.create(:name => "Sally Clark",
                  :twitter => "sally4council",
                  :facebook => "http://www.facebook.com/votesally",
                  :email => "info@electsallyclark.com",
-                 :phone => "(206) 235-0363",
+				 :phone => "(555) 555-5555"
                  :photo => "http://wpcnet.org/end_uploads/sally_clark.jpg"
                 )
 
@@ -129,6 +129,6 @@ Candidate.create(:name => "Dian Ferguson",
                  :position_id => position9.id,
                  :facebook => "http://www.facebook.com/pages/Elect-Dian-Ferguson/154297187967305",
                  :email => "logan@dianferguson.com",
-                 :phone => "206-478-4471",
+				 :phone => "(555) 555-5555"
                  :photo => "http://hphotos-sea1.fbcdn.net/hphotos-snc6/231196_160441710686186_154297187967305_382078_8147866_n.jpg"
                 )
