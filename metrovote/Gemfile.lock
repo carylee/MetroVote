@@ -169,7 +169,7 @@ DEPENDENCIES
   koala
   omniauth
   rails (= 3.0.9)
-  rake (= 0.8.7)
+  rake
   rbing
   sqlite3-ruby (= 1.2.5)
   twitter

@@ -13,7 +13,7 @@ gem 'rbing'
 gem 'koala'
 gem 'haml'
 gem 'jquery-rails'
-gem 'rake', '0.8.7'
+gem 'rake'
 
 # Use unicorn as the web server
 # gem 'unicorn'
