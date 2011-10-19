@@ -3,12 +3,12 @@
     .container
       %a.brand{:href => '/'} MetroVote
       %ul.nav
-        %li.dropdown
+        %li.dropdown{:data => {:dropdown =>"dropdown"}}
           %a.dropdown-toggle{:href => '#'} Seattle City Council
           %ul.dropdown-menu
-            - @position.candidates.each do |candidate|
+            - @positions.each do |position|
               %li
-                %a{:href => '#'}= candidate.name
+                %a{:href => '/positions/' + position.id.to_s}= position.title
 .container
   .content
     .row
