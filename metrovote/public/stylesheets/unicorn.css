@@ -19,12 +19,12 @@ div.candidate img.portrait {
 }
 
 #can1 div.contact, #can1 h1, #can1 h2, #can1 h3{
-  text-align: right;
+  text-align: left;
 }
 
 #can1 img.portrait {
-  float:right;
-  padding-left: 10px;
+  float:left;
+  padding-right: 10px;
 }
 
 #news div.story {
