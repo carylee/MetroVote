@@ -23,6 +23,9 @@ class Candidate < ActiveRecord::Base
     end
   end
 
+  def get_fb_posts
+  end
+
   def get_articles
     bing = RBing.new("E08C094B36831A4E20810A668B43265D1941F8FE")
     rsp = bing.news(self.name + " " + "seattle")
