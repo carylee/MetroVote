@@ -17,7 +17,7 @@
           %h1= @candidate1.name
           .contact
             %p
-              %a{:href => @candidate2.website, :target => "_blank"} Campaign Page
+              %a{:href => @candidate1.website, :target => "_blank"} Campaign Page
               |
               = mail_to @candidate1.email, "Email"
               |
