@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20111023210745) do
     t.datetime "updated_at"
     t.integer  "position_id"
     t.string   "phone"
+    t.boolean  "is_incumbent"
   end
 
   create_table "elections", :force => true do |t|

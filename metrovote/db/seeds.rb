@@ -62,7 +62,7 @@ Candidate.create(:name => "Brad Meacham",
                  :position_id => position3.id,
                  :twitter => "bradmeacham",
                  :facebook => "http://www.facebook.com/electbradmeacham",
-                 :email => "forchforcouncil@gmail.com",
+                 :email => "info@electbradmeacham.com",
 				 :phone => "(555) 555-5555"
                  :photo => "http://seattletransitblog.com/wp-content/uploads/2011/07/meacham.png"
                 )
