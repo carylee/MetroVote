@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111019164552) do
+ActiveRecord::Schema.define(:version => 20111023210745) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -43,6 +43,24 @@ ActiveRecord::Schema.define(:version => 20111019164552) do
     t.string   "title"
     t.string   "location"
     t.string   "keyword"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "facebook_posts", :force => true do |t|
+    t.text     "message"
+    t.string   "picture"
+    t.string   "link"
+    t.string   "name"
+    t.string   "caption"
+    t.string   "icon"
+    t.string   "type"
+    t.text     "description"
+    t.datetime "created_time"
+    t.string   "post_id"
+    t.string   "from_name"
+    t.string   "from_id"
+    t.integer  "candidate_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

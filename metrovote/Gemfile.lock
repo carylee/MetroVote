@@ -134,7 +134,7 @@ GEM
     rake (0.8.7)
     rbing (1.1.0)
       httparty (>= 0.4.0)
-    rdoc (3.10)
+    rdoc (3.11)
       json (~> 1.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)

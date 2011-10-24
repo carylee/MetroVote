@@ -19,12 +19,12 @@ div.candidate img.portrait {
 }
 
 #can1 div.contact, #can1 h1, #can1 h2, #can1 h3{
-  text-align: right;
+  text-align: left;
 }
 
 #can1 img.portrait {
-  float:right;
-  padding-left: 10px;
+  float:left;
+  padding-right: 10px;
 }
 
 #can1 img.incumbent {
@@ -105,7 +105,7 @@ a.position:hover {
 
 #news {
   margin-top: 90px;
-  text-align: center;
+  text-align: left;
 }
 
 .socialmedia p {
@@ -120,7 +120,7 @@ a.position:hover {
   background: rgba(255,255,255,0.8);
   padding: 5px;
   margin: -5px;
-  margin-top: 45px;
+  margin-top: 50px;
   -webkit-border-radius: 0 0 6px 6px;
    -moz-border-radius: 0 0 6px 6px;
         border-radius: 0 0 6px 6px;
