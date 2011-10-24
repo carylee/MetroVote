@@ -1,6 +1,6 @@
 class Article < ActiveRecord::Base
   default_scope :order => 'date DESC'
 
-  candidates = []
+  attr_accessor :candidates
 
 end

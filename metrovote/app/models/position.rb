@@ -8,13 +8,14 @@ class Position < ActiveRecord::Base
       @candidate.articles.each do |@article|
         #articles.push @article
         if articles.has_key? @article.url
-          articles[@article.url]['candidate'].push(@candidate)
+          articles[@article.url].candidates.push(@candidate)
         else
-          articles[@article.url] = {'candidate'=>[@candidate], 'article'=>@article}
+          #articles[@article.url] = {'candidate'=>[@candidate], 'article'=>@article}
+          @article.candidates = [@candidate]
+          articles[@article.url] = @article
         end
       end
     end
-    #articles.sort {|a,b| a.date <=> b.date }
-    return articles
+    return articles.values.sort {|a,b| b.date <=> a.date }
   end
 end

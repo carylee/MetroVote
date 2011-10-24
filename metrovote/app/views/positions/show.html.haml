@@ -14,8 +14,6 @@
     .row
       .span6
         #can1.candidate
-          - if @candidate1.is_incumbent
-            %img.incumbent{:src => '/images/incumbent_badge.gif' }
           %h1= @candidate1.name
           .contact
             %p
@@ -24,7 +22,7 @@
               = mail_to @candidate1.email, "Email"
               |
               = @candidate1.phone
-          %img.portrait{:src => @candidate1.photo }
+          %img.portrait{:src => @candidate1.photo }/
           .bio
             %p= @candidate1.bio
           .socialmedia
@@ -33,17 +31,15 @@
               %p= auto_link(tweet.text).html_safe
       .span4
         #news.news
-          - @position.articles.each do |url, article|
+          - @position.articles.each do |article|
             .story
-              %h3= link_to(article['article'].title, article['article'].url)
-              %p.source= article['article'].source
-              %p= article['article'].snippet
-              - article['candidate'].each do |c|
+              %h3= link_to(article.title, article.url)
+              %p.source= article.source
+              %p= article.snippet
+              - article.candidates.each do |c|
                 %p= c.name
       .span6
         #can2.candidate
-          - if @candidate2.is_incumbent
-            %img.incumbent{:src => '/images/incumbent_badge.gif' }
           %h1= @candidate2.name
           .contact
             %p
