@@ -27,6 +27,10 @@ div.candidate img.portrait {
   padding-left: 10px;
 }
 
+#can1 img.incumbent {
+  float:left;
+}
+
 #news div.story {
   background: #eee;
   padding: 4px;
@@ -53,6 +57,10 @@ div.candidate img.portrait {
 #can2 img.portrait {
   float: left;
   padding-right: 10px;
+}
+
+#can2 img.incumbent {
+  float:right;
 }
 
 .position .name {
