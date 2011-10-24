@@ -31,11 +31,13 @@
               %p= auto_link(tweet.text).html_safe
       .span4
         #news.news
-          - @position.articles.each do |article|
+          - @position.articles.each do |url, article|
             .story
-              %h3= link_to(article.title, article.url)
-              %p.source= article.source
-              %p= article.snippet
+              %h3= link_to(article['article'].title, article['article'].url)
+              %p.source= article['article'].source
+              %p= article['article'].snippet
+              - article['candidate'].each do |c|
+                %p= c.name
       .span6
         #can2.candidate
           %h1= @candidate2.name
