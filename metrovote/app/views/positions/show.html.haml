@@ -37,7 +37,10 @@
               %p.source= article.source
               %p= article.snippet
               - article.candidates.each do |c|
-                %p= c.name
+                - if c.id == @candidate1.id
+                  %span.label.notice= c.name
+                - else
+                  %span.label.success= c.name
       .span6
         #can2.candidate
           %h1= @candidate2.name
@@ -52,6 +55,7 @@
           .bio.can2
             %p= @candidate2.bio
           .socialmedia
-            %h2 Feed
-            - @candidate2.tweets.each do |tweet|
-              %p= auto_link(tweet.text).html_safe
+            %ul.tabs
+              %li.active Feed
+              - @candidate2.tweets.each do |tweet|
+                %p= auto_link(tweet.text).html_safe
