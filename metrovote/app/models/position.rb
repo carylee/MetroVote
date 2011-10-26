@@ -4,15 +4,15 @@ class Position < ActiveRecord::Base
 
   def articles
     articles = {}
-    self.candidates.each do |@candidate|
-      @candidate.articles.each do |@article|
-        #articles.push @article
-        if articles.has_key? @article.url
-          articles[@article.url].candidates.push(@candidate)
+    self.candidates.each do |candidate|
+      candidate.articles.each do |article|
+        #articles.push article
+        if articles.has_key? article.url
+          articles[article.url].candidates.push(candidate)
         else
-          #articles[@article.url] = {'candidate'=>[@candidate], 'article'=>@article}
-          @article.candidates = [@candidate]
-          articles[@article.url] = @article
+          #articles[article.url] = {'candidate'=>[candidate], 'article'=>article}
+          article.candidates = [candidate]
+          articles[article.url] = article
         end
       end
     end

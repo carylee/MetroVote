@@ -51,7 +51,7 @@ GEM
       railties (~> 3.0)
       thor (~> 0.14)
     json (1.6.1)
-    koala (1.2.1)
+    koala (1.2.0)
       faraday (~> 0.7.0)
       multi_json (~> 1.0)
     log4r (1.1.9)
@@ -166,7 +166,7 @@ PLATFORMS
 DEPENDENCIES
   haml
   jquery-rails
-  koala
+  koala (= 1.2.0)
   omniauth
   rails (= 3.0.9)
   rake (= 0.8.7)
