@@ -14,6 +14,8 @@
     .row
       .span6
         #can1.candidate
+          - if @candidate1.is_incumbent
+            %img.incumbent{:src => '/images/incumbent_badge.gif' }
           %h1= @candidate1.name
           .contact
             %p
@@ -43,6 +45,8 @@
                   %span.label.success= c.name
       .span6
         #can2.candidate
+          - if @candidate2.is_incumbent
+            %img.incumbent{:src => '/images/incumbent_badge.gif' }
           %h1= @candidate2.name
           .contact
             %p
