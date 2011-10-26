@@ -55,7 +55,6 @@
           .bio.can2
             %p= @candidate2.bio
           .socialmedia
-            %ul.tabs
-              %li.active Feed
-              - @candidate2.tweets.each do |tweet|
-                %p= auto_link(tweet.text).html_safe
+            %h2 Feed
+            - @candidate2.tweets.each do |tweet|
+              %p= auto_link(tweet.text).html_safe
