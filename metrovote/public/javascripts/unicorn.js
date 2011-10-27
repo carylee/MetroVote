@@ -7,7 +7,7 @@ $(document).ready(function() {
       v = /twitter.com\/(\w{1,15})/gi;
       matches = v.exec(data.website);
       var twitter;
-      if(matches.length > 1) {
+      if(matches != null && matches.length > 1) {
         twitter = matches[1];
       }
       $("#candidate_name").val(data.name);
