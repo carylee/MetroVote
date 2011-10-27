@@ -37,7 +37,7 @@
     .clearfix
       = f.label :position_id
       .input
-        = f.text_field :position_id
+        =f.select(:position_id, Position.all.collect {|p| [p.title, p.id] })
     .clearfix
       = f.label :twitter
       .input
