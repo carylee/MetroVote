@@ -26,7 +26,7 @@ class Candidate < ActiveRecord::Base
   def get_fb_posts
     token = "AAADEvdySPLsBAFyCj39cLJFpW8aAAXnr1R5ZCrlZAY2aSlBhrj8BVAGI32TS1eVxEQZC4jZABKZCzyUgZARob2K33YBDxgMVsZD"
     @graph = Koala::Facebook::API.new(token)
-    feed = @graph.get_connections(parse_facebook_url(self.facebook), "feed")
+    feed = @graph.get_connections(self.parse_facebook_url(self.facebook), "feed")
     feed.each do |post|
       created = DateTime.parse(post['created_time'])
       unless FacebookPost.exists?(:post_id=>post['id'])
@@ -48,7 +48,13 @@ class Candidate < ActiveRecord::Base
     end
   end
 
-  def parse_facebook_url(url)
+  def self.get_facebook_info(fb)
+    token = "AAADEvdySPLsBAFyCj39cLJFpW8aAAXnr1R5ZCrlZAY2aSlBhrj8BVAGI32TS1eVxEQZC4jZABKZCzyUgZARob2K33YBDxgMVsZD"
+    @graph = Koala::Facebook::API.new(token)
+    return @graph.get_object(self.parse_facebook_url(fb))
+  end
+
+  def self.parse_facebook_url(url)
     return URI::split(url)[5].split('/')[-1]
   end
 

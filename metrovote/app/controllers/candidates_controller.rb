@@ -21,6 +21,13 @@ class CandidatesController < ApplicationController
     end
   end
 
+  def facebook
+    @c = Candidate.get_facebook_info params[:fb]
+    respond_to do |format|
+      format.json{ render :json => @c.to_json }
+    end
+  end
+
   # GET /candidates/new
   # GET /candidates/new.xml
   def new

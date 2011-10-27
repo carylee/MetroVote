@@ -1,64 +1,51 @@
-.topbar
-  .topbar-inner
-    .container
-      %a.brand{:href => '/'} MetroVote
-      %ul.nav
-        %li.dropdown{:data => {:dropdown =>"dropdown"}}
-          %a.dropdown-toggle{:href => '#'} Seattle City Council
-          %ul.dropdown-menu
-            - @positions.each do |position|
-              %li
-                %a{:href => '/positions/' + position.id.to_s}= position.title
-.container
-  .content
-    .row
-      .span6
-        #can1.candidate
-          - if @candidate1.is_incumbent
-            %img.incumbent{:src => '/images/incumbent_badge.gif' }
-          %h1= @candidate1.name
-          .contact
-            %p
-              %a{:href => @candidate1.website, :target => "_blank"} Campaign Page
-              |
-              = mail_to @candidate1.email, "Email"
-              |
-              = @candidate1.phone
-          %img.portrait{:src => @candidate1.photo }/
-          .bio
-            %p= @candidate1.bio
-          .socialmedia
-            %h2 Feed
-            - @candidate1.tweets.each do |tweet|
-              %p= auto_link(tweet.text).html_safe
-      .span4
-        #news.news
-          - @position.articles.each do |article|
-            .story
-              %h3= link_to(article.title, article.url)
-              %p.source= article.source
-              %p= article.snippet
-              - article.candidates.each do |c|
-                - if c.id == @candidate1.id
-                  %span.label.notice= c.name
-                - else
-                  %span.label.success= c.name
-      .span6
-        #can2.candidate
-          - if @candidate2.is_incumbent
-            %img.incumbent{:src => '/images/incumbent_badge.gif' }
-          %h1= @candidate2.name
-          .contact
-            %p
-              %a{:href => @candidate2.website, :target => "_blank"} Campaign Page
-              |
-              = mail_to @candidate2.email, "Email"
-              |
-              = @candidate2.phone
-          %img.portrait{:src => @candidate2.photo}/
-          .bio.can2
-            %p= @candidate2.bio
-          .socialmedia
-            %h2 Feed
-            - @candidate2.tweets.each do |tweet|
-              %p= auto_link(tweet.text).html_safe
+.row
+  .span6
+    #can1.candidate
+      - if @candidate1.is_incumbent
+        %img.incumbent{:src => '/images/incumbent_badge.gif' }
+      %h1= @candidate1.name
+      .contact
+        %p
+          %a{:href => @candidate1.website, :target => "_blank"} Campaign Page
+          |
+          = mail_to @candidate1.email, "Email"
+          |
+          = @candidate1.phone
+      %img.portrait{:src => @candidate1.photo }/
+      .bio
+        %p= @candidate1.bio
+      .socialmedia
+        %h2 Feed
+        - @candidate1.tweets.each do |tweet|
+          %p= auto_link(tweet.text).html_safe
+  .span4
+    #news.news
+      - @position.articles.each do |article|
+        .story
+          %h3= link_to(article.title, article.url)
+          %p.source= article.source
+          %p= article.snippet
+          - article.candidates.each do |c|
+            - if c.id == @candidate1.id
+              %span.label.notice= c.name
+            - else
+              %span.label.success= c.name
+  .span6
+    #can2.candidate
+      - if @candidate2.is_incumbent
+        %img.incumbent{:src => '/images/incumbent_badge.gif' }
+      %h1= @candidate2.name
+      .contact
+        %p
+          %a{:href => @candidate2.website, :target => "_blank"} Campaign Page
+          |
+          = mail_to @candidate2.email, "Email"
+          |
+          = @candidate2.phone
+      %img.portrait{:src => @candidate2.photo}/
+      .bio.can2
+        %p= @candidate2.bio
+      .socialmedia
+        %h2 Feed
+        - @candidate2.tweets.each do |tweet|
+          %p= auto_link(tweet.text).html_safe

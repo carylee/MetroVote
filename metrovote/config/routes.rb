@@ -3,6 +3,8 @@ Metrovote::Application.routes.draw do
 
   resources :positions
 
+  match 'candidates/facebook', :to => 'candidates#facebook'
+
   resources :candidates
 
   root :to => 'positions#index'
