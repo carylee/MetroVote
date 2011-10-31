@@ -10,7 +10,7 @@
         %img.incumbent{:src => '/images/incumbent_badge.gif' }
       %h1= @candidate2.name
 .row.bios
-  .span7
+  .span8
     .can1.candidate
       %img.portrait{:src => @candidate1.photo }/
       .bio
@@ -21,9 +21,7 @@
             %a{:href => @candidate1.website, :target => "_blank"}= @candidate1.website
           %li= mail_to @candidate1.email
           %li= number_to_phone(@candidate1.phone, :area_code => true)
-  .span2
-    %p Yo dawg
-  .span7
+  .span8
     .can2.candidate
       %img.portrait{:src => @candidate2.photo}/
       .bio.can2
