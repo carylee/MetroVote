@@ -1,4 +1,48 @@
+var bios = function(){
+  var visible;
+  var div;
+  var trigger;
+  var key = document.location.pathname + "-bio-visibility";
+  var getVisibility = function(){
+    var isVisible = localStorage.getItem(key);
+    return isVisible && isVisible == "false" ? false : true;
+  }
+  var toggleVisbility = function(){
+    visible = !visible;
+    localStorage[key] = visible ? "true" : "false";
+    updateLabel();
+  }
+  var updateLabel = function() {
+    var label = visible ? "Less" : "More";
+    trigger.html(label);
+  }
+  var init = function(){
+    visible = getVisibility();
+    div = $(".bios");
+    trigger = $(".collapse-expand");
+    if(!visible) {
+      div.hide();
+    }
+    updateLabel();
+    trigger.click(toggle);
+  }
+  var toggle = function(){
+    if(visible) {
+      div.slideUp();
+    } else {
+      div.slideDown();
+    }
+    toggleVisbility();
+  }
+  return {
+    init : init,
+  }
+}();
+
+
 $(document).ready(function() {
+  bios.init();
+
   $("#facebook-fetch").click(function(e){
     e.preventDefault();
     var fb = $("#candidate_facebook").val();

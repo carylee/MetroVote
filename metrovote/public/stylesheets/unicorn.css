@@ -18,16 +18,28 @@ div.candidate img.portrait {
   padding-bottom: 10px;
 }
 
-#can1 div.contact, #can1 h1, #can1 h2, #can1 h3{
+.can1 div.contact, #can1 h1, #can1 h2, #can1 h3{
   text-align: left;
 }
 
-#can1 img.portrait {
+div.contact {
+  clear: both;
+}
+
+.can2 div.contact {
+  text-align: right;
+}
+
+.can2 h1 {
+  text-align: right;
+}
+
+.can1 img.portrait {
   float:left;
   padding-right: 10px;
 }
 
-#can1 img.incumbent {
+.can1 img.incumbent {
   float:left;
 }
 
@@ -54,12 +66,12 @@ div.candidate img.portrait {
   font-size: 90%;
 }
 
-#can2 img.portrait {
-  float: left;
-  padding-right: 10px;
+.can2 img.portrait {
+  float: right;
+  padding-left: 10px;
 }
 
-#can2 img.incumbent {
+.can2 img.incumbent {
   float:right;
 }
 
@@ -104,8 +116,18 @@ a.position:hover {
 }
 
 #news {
-  margin-top: 90px;
+  margin-top: 0px;
   text-align: left;
+}
+
+.collapse-expand {
+  height: 20px;
+  text-align: center;
+  background-color: #eee;
+}
+
+.collapse-expand:hover {
+  background: rgba(0, 105, 214, 0.6);
 }
 
 .socialmedia p {

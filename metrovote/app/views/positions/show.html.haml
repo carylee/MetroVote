@@ -1,25 +1,52 @@
 .row
-  .span6
-    #can1.candidate
+  .span8
+    .can1.candidate
       - if @candidate1.is_incumbent
         %img.incumbent{:src => '/images/incumbent_badge.gif' }
       %h1= @candidate1.name
-      .contact
-        %p
-          %a{:href => @candidate1.website, :target => "_blank"} Campaign Page
-          |
-          = mail_to @candidate1.email, "Email"
-          |
-          = @candidate1.phone
+  .span8
+    .can2.candidate
+      - if @candidate2.is_incumbent
+        %img.incumbent{:src => '/images/incumbent_badge.gif' }
+      %h1= @candidate2.name
+.row.bios
+  .span7
+    .can1.candidate
       %img.portrait{:src => @candidate1.photo }/
       .bio
         %p= @candidate1.bio
-      .socialmedia
-        %h2 Feed
-        - @candidate1.tweets.each do |tweet|
-          %p= auto_link(tweet.text).html_safe
+      .contact
+        %ul.unstyled
+          %li
+            %a{:href => @candidate1.website, :target => "_blank"}= @candidate1.website
+          %li= mail_to @candidate1.email
+          %li= number_to_phone(@candidate1.phone, :area_code => true)
+  .span2
+    %p Yo dawg
+  .span7
+    .can2.candidate
+      %img.portrait{:src => @candidate2.photo}/
+      .bio.can2
+        %p= @candidate2.bio
+      .contact
+        %ul.unstyled
+          %li
+            %a{:href => @candidate2.website, :target => "_blank"}= @candidate2.website
+          %li= mail_to @candidate2.email
+          %li= number_to_phone(@candidate2.phone, :area_code => true)
+.row
+  .span16
+    .collapse-expand
+      %p Collapse
+.row
   .span4
+    .socialmedia
+      %h2 Feed
+      - @candidate1.tweets.each do |tweet|
+        %p= auto_link(tweet.text).html_safe
+  .span8
     #news.news
+      %h2 News
       - @position.articles.each do |article|
         .story
           %h3= link_to(article.title, article.url)
@@ -30,22 +57,8 @@
               %span.label.notice= c.name
             - else
               %span.label.success= c.name
-  .span6
-    #can2.candidate
-      - if @candidate2.is_incumbent
-        %img.incumbent{:src => '/images/incumbent_badge.gif' }
-      %h1= @candidate2.name
-      .contact
-        %p
-          %a{:href => @candidate2.website, :target => "_blank"} Campaign Page
-          |
-          = mail_to @candidate2.email, "Email"
-          |
-          = @candidate2.phone
-      %img.portrait{:src => @candidate2.photo}/
-      .bio.can2
-        %p= @candidate2.bio
-      .socialmedia
-        %h2 Feed
-        - @candidate2.tweets.each do |tweet|
-          %p= auto_link(tweet.text).html_safe
+  .span4
+    .socialmedia
+      %h2 Feed
+      - @candidate2.tweets.each do |tweet|
+        %p= auto_link(tweet.text).html_safe
