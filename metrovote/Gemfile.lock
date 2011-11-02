@@ -33,6 +33,10 @@ GEM
     addressable (2.2.6)
     arel (2.0.10)
     builder (2.1.2)
+    embedly (1.3.0)
+      oauth
+      querystring
+      typhoeus
     erubis (2.6.6)
       abstract (>= 1.0.0)
     faraday (0.7.5)
@@ -109,6 +113,7 @@ GEM
       oa-openid (= 0.3.0)
     polyglot (0.3.2)
     pyu-ruby-sasl (0.0.3.3)
+    querystring (0.1.0)
     rack (1.2.4)
     rack-mount (0.6.14)
       rack (>= 1.0.0)
@@ -156,6 +161,8 @@ GEM
       multi_json (~> 1.0.0)
       multi_xml (~> 0.4.0)
       simple_oauth (~> 0.1.5)
+    typhoeus (0.3.2)
+      mime-types
     tzinfo (0.3.30)
     uuid (2.3.4)
       macaddr (~> 1.0)
@@ -164,6 +171,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  embedly
   haml
   jquery-rails
   koala (= 1.2.0)
