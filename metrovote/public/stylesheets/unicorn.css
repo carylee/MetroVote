@@ -130,7 +130,7 @@ a.position:hover {
   background: rgba(0, 105, 214, 0.6);
 }
 
-.socialmedia p {
+.socialmedia div.post {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -165,5 +165,4 @@ div.socialmedia {
 
 .source {
 color: #868686;
-
 }

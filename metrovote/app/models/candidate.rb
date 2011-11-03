@@ -4,6 +4,7 @@ require 'rbing'
 class Candidate < ActiveRecord::Base
   #belongs_to :position
   has_many :tweets
+  has_many :posts
   has_many :articles
 
   def get_tweets
@@ -11,11 +12,22 @@ class Candidate < ActiveRecord::Base
       Twitter.user_timeline(self.twitter).each do |tweet|
         created = DateTime.parse(tweet.created_at)
         if tweet.in_reply_to_user_id.nil?
-          unless Tweet.exists?(["tweet_id=?", tweet.id_str])
-            @t = Tweet.new(:tweet_id => tweet.id_str,
-                           :text => tweet.text,
+          unless Post.exists?(:post_id=>tweet.id, :source=>'twitter')
+            @t = Post.new(:message => tweet.text,
+                           :source => 'twitter',
+                           :picture => tweet.user.profile_image_url,
+                           #:name => '',
+                           #:caption => '',
+                           :icon => tweet.user.profile_image_url,
+                           #:type => '',
+                           #:description => '',
+                           :posted_at => created,
+                           :post_id => tweet.id_str,
+                           :is_endorsement => false,
+                           :is_reply => false,
                            :candidate_id => self.id,
-                           :created => created)
+                           :from_id => tweet.user.id,
+                           :from_name => tweet.user.screen_name)
             @t.save
           end
         end
@@ -26,11 +38,12 @@ class Candidate < ActiveRecord::Base
   def get_fb_posts
     token = "AAADEvdySPLsBAFyCj39cLJFpW8aAAXnr1R5ZCrlZAY2aSlBhrj8BVAGI32TS1eVxEQZC4jZABKZCzyUgZARob2K33YBDxgMVsZD"
     @graph = Koala::Facebook::API.new(token)
-    feed = @graph.get_connections(self.parse_facebook_url(self.facebook), "feed")
+    feed = @graph.get_connections(self.class.parse_facebook_url(self.facebook), "feed")
     feed.each do |post|
       created = DateTime.parse(post['created_time'])
-      unless FacebookPost.exists?(:post_id=>post['id'])
-        @p = FacebookPost.new(:message => post['message'],
+      unless Post.exists?(:post_id=>post['id'], :source=>'facebook')
+        @p = Post.new(:message => post['message'],
+                              :source => 'facebook',
                               :picture => post['picture'],
                               :link => post['link'],
                               :name => post['name'],
@@ -38,8 +51,10 @@ class Candidate < ActiveRecord::Base
                               :icon => post['icon'],
                               :type => post['type'],
                               :description => post['description'],
-                              :created_time => created,
+                              :posted_at => created,
                               :post_id => post['id'],
+                              :is_endorsement => false,
+                              :is_reply => false,
                               :candidate_id => self.id,
                               :from_id => post['from']['id'],
                               :from_name => post['from']['name'])
@@ -51,7 +66,7 @@ class Candidate < ActiveRecord::Base
   def self.get_facebook_info(fb)
     token = "AAADEvdySPLsBAFyCj39cLJFpW8aAAXnr1R5ZCrlZAY2aSlBhrj8BVAGI32TS1eVxEQZC4jZABKZCzyUgZARob2K33YBDxgMVsZD"
     @graph = Koala::Facebook::API.new(token)
-    return @graph.get_object(self.parse_facebook_url(fb))
+    return @graph.get_object(self.class.parse_facebook_url(fb))
   end
 
   def self.parse_facebook_url(url)

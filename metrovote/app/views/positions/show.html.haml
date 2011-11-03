@@ -40,8 +40,10 @@
   .span4
     .socialmedia
       %h2 Feed
-      - @candidate1.tweets.each do |tweet|
-        %p= auto_link(tweet.text).html_safe
+      - @candidate1.posts.each do |post|
+        .post
+          %p= auto_link(post.message).html_safe
+          %p.source= post.source
   .span8
     #news.news
       %h2 News
@@ -58,5 +60,7 @@
   .span4
     .socialmedia
       %h2 Feed
-      - @candidate2.tweets.each do |tweet|
-        %p= auto_link(tweet.text).html_safe
+      - @candidate2.posts.each do |post|
+        .post
+          %p= auto_link(post.message).html_safe
+          %p.source= post.source
