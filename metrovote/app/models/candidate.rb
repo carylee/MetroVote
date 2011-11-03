@@ -23,7 +23,7 @@ class Candidate < ActiveRecord::Base
                            #:description => '',
                            :posted_at => created,
                            :post_id => tweet.id_str,
-                           :is_endorsement => false,
+                           :is_endorsement => has_endorsement(tweet.text),
                            :is_reply => false,
                            :candidate_id => self.id,
                            :from_id => tweet.user.id,
@@ -53,7 +53,7 @@ class Candidate < ActiveRecord::Base
                               :description => post['description'],
                               :posted_at => created,
                               :post_id => post['id'],
-                              :is_endorsement => false,
+                              :is_endorsement => has_endorsement(post['message']),
                               :is_reply => false,
                               :candidate_id => self.id,
                               :from_id => post['from']['id'],
@@ -92,9 +92,21 @@ class Candidate < ActiveRecord::Base
     end
   end
 
+  def has_endorsement(text)
+    return !/endorse/i.match(text).nil?
+  end
+
   def fetch_data
     get_articles
     get_tweets
+  end
+
+  def feed
+    return Post.where("candidate_id=#{self.id} AND message != ''")
+  end
+
+  def endorsements
+    return Post.where(:candidate_id => self.id, :is_endorsement=>true)
   end
 
   def self.get_tweets
