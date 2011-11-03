@@ -12,6 +12,7 @@ Candidate.delete_all
 Position.delete_all
 Election.delete_all
 FacebookPost.delete_all
+Post.delete_all
 
 seattleElections = Election.create(:title => "Seattle City Council Elections",
                                    :location => "Seattle, WA",
@@ -33,7 +34,7 @@ SDOT laborer in Local 1239, SDOT Safety, Health and Environmental Mangaer, city'
                  :position_id => position1.id,
                  :facebook => "http://www.facebook.com/pages/Bobby-Forch/80010933301",
                  :email => "forchforcouncil@gmail.com",
-                 :phone => "+15555555555",
+                 :phone => "5555555555",
                  :photo => "http://washingtonbus.org/blog/blog-images/forch.jpg",
                  :is_incumbent => 0)
 
@@ -46,7 +47,7 @@ Balancing our city's budget, bringing new jobs to the region and protecting our 
                  :position_id => position1.id,
                  :facebook => "http://www.facebook.com/reelectjeangodden",
                  :email => "info@jeangodden.com",
-                 :phone => "+15555555555",
+                 :phone => "5555555555",
                  :photo => "http://wedgwoodcc.org/wp-content/uploads/2011/02/godden.jpg",
                  :is_incumbent => 1)
 
@@ -57,7 +58,7 @@ Candidate.create(:name => "Bruce Harrell",
                  :position_id => position3.id,
                  :facebook => "http://www.facebook.com/bruceharrell",
                  :email => "bruceharrell2011@gmail.com",
-                 :phone => "+15555555555",
+                 :phone => "5555555555",
                  :is_incumbent => 1,
                  :photo => "http://www.edgeonthenet.com/display/viewimage_story.php?id=119836")
 
@@ -69,7 +70,7 @@ Candidate.create(:name => "Brad Meacham",
                  :is_incumbent => 0,
                  :facebook => "http://www.facebook.com/electbradmeacham",
                  :email => "info@electbradmeacham.com",
-                 :phone => "+15555555555",
+                 :phone => "5555555555",
                  :photo => "http://seattletransitblog.com/wp-content/uploads/2011/07/meacham.png")
 
 Candidate.create(:name => "Dale L. Pusey",
@@ -79,7 +80,7 @@ Candidate.create(:name => "Dale L. Pusey",
                  :position_id => position5.id,
                  :facebook => "http://www.facebook.com/pages/People-for-Dale-Pusey/210451178991456",
                  :email => "dale.pusey@clearwire.net",
-                 :phone => "+15555555555",
+                 :phone => "5555555555",
                  :is_incumbent => 0,
                  :photo => "http://www.dalepusey.com/images/dale2.jpg")
 
@@ -90,7 +91,7 @@ Candidate.create(:name => "Tom Rasmussen",
                  :position_id => position5.id,
                  :facebook => "http://www.facebook.com/pages/Tom-Rasmussen-for-Seattle-City-Council/133544566715511",
                  :email => "info@tom4seattle.com",
-                 :phone => "+15555555555",
+                 :phone => "5555555555",
                  :is_incumbent => 1,
                  :photo => "http://tom4seattle.com/images/uploaded/bio.jpg")
 
@@ -102,7 +103,7 @@ Candidate.create(:name => "Tim Burgess",
                  :is_incumbent => 1,
                  :facebook => "http://www.facebook.com/pages/Elect-Tim-Burgess/151303868270933",
                  :email => "info@electtimburgess.com",
-                 :phone => "+15555555555",
+                 :phone => "5555555555",
                  :photo => "http://electtimburgess.com/images/tim-head.jpg")
 
 Candidate.create(:name => "David L. Schraer",
@@ -113,7 +114,7 @@ Candidate.create(:name => "David L. Schraer",
                  :facebook => "http://www.facebook.com/pages/David-For-Seattle/225560587477278?sk=wall",
                  :is_incumbent => 0,
                  :email => "david@inplainair.com",
-                 :phone => "+15555555555",
+                 :phone => "5555555555",
                  :photo => "https://lh5.googleusercontent.com/-BjFGERGrSbI/AAAAAAAAAAI/AAAAAAAAAYY/g7VO9DuOZz4/photo.jpg")
 
 Candidate.create(:name => "Sally Clark",
@@ -123,7 +124,7 @@ Candidate.create(:name => "Sally Clark",
                  :twitter => "sally4council",
                  :facebook => "http://www.facebook.com/votesally",
                  :email => "info@electsallyclark.com",
-                 :phone => "+15555555555",
+                 :phone => "5555555555",
                  :is_incumbent => 1,
                  :photo => "http://wpcnet.org/end_uploads/sally_clark.jpg")
 
@@ -135,5 +136,5 @@ Candidate.create(:name => "Dian Ferguson",
                  :facebook => "http://www.facebook.com/pages/Elect-Dian-Ferguson/154297187967305",
                  :is_incumbent => 0,
                  :email => "logan@dianferguson.com",
-                 :phone => "+15555555555",
+                 :phone => "5555555555",
                  :photo => "http://hphotos-sea1.fbcdn.net/hphotos-snc6/231196_160441710686186_154297187967305_382078_8147866_n.jpg")
