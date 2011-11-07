@@ -93,7 +93,7 @@ class Candidate < ActiveRecord::Base
   end
 
   def has_endorsement(text)
-    return !/endorse/i.match(text).nil?
+    return !/endors/i.match(text).nil?
   end
 
   def fetch_data
