@@ -45,13 +45,11 @@
         %a{:href => '#candidate-1-endorsements'} Endorsements
     .tab-content
       #candidate-1-feed.socialmedia.active
-        %h2 Feed
         - @candidate1.feed.each do |post|
           .post
             %p= auto_link(post.message).html_safe
             %p.source= post.source.capitalize
       #candidate-1-endorsements.endorsements
-        %h2 Endorsements
         - @candidate1.endorsements.each do |post|
           .post
             %p= auto_link(post.message).html_safe
@@ -77,13 +75,11 @@
         %a{:href => '#candidate-2-endorsements'} Endorsements
     .tab-content
       #candidate-2-feed.socialmedia.active
-        %h2 Feed
         - @candidate2.feed.each do |post|
           .post
             %p= auto_link(post.message).html_safe
             %p.source= post.source.capitalize
       #candidate-2-endorsements.endorsements
-        %h2 Endorsements
         - @candidate2.endorsements.each do |post|
           .post
             %p= auto_link(post.message).html_safe

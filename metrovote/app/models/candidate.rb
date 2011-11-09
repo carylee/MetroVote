@@ -93,7 +93,7 @@ class Candidate < ActiveRecord::Base
   end
 
   def has_endorsement(text)
-    return !/endorse/i.match(text).nil?
+    return !/endors/i.match(text).nil?
   end
 
   def fetch_data
@@ -109,12 +109,16 @@ class Candidate < ActiveRecord::Base
     return Post.where(:candidate_id => self.id, :is_endorsement=>true)
   end
 
-  def self.get_tweets
-    self.all.each {|c| c.get_tweets}
+  def self.fetch_tweets
+    self.find_each {|c| c.get_tweets}
   end
 
-  def self.get_articles
-    self.all.each {|a| a.get_articles}
+  def self.fetch_articles
+    self.find_each {|a| a.get_articles}
+  end
+
+  def self.fetch_fb_posts
+    self.find_each {|c| c.get_fb_posts}
   end
 
   def self.fetch_data
