@@ -66,7 +66,7 @@ class Candidate < ActiveRecord::Base
   def self.get_facebook_info(fb)
     token = "AAADEvdySPLsBAFyCj39cLJFpW8aAAXnr1R5ZCrlZAY2aSlBhrj8BVAGI32TS1eVxEQZC4jZABKZCzyUgZARob2K33YBDxgMVsZD"
     @graph = Koala::Facebook::API.new(token)
-    return @graph.get_object(self.class.parse_facebook_url(fb))
+    return @graph.get_object(self.parse_facebook_url(fb))
   end
 
   def self.parse_facebook_url(url)
