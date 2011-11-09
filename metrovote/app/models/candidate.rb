@@ -79,7 +79,7 @@ class Candidate < ActiveRecord::Base
     if rsp.key? 'News'
       rsp.news.results.each do |article|
         created = DateTime.parse(article.Date)
-        unless Article.exists?(:url=>article.Url, :candidate_id=>self.id)
+        unless Article.exists?(:url=>article.Title, :source => article.Source, :candidate_id=>self.id)
           @a = Article.new(:title => article.Title,
                            :snippet => article.Snippet,
                            :url => article.Url,
