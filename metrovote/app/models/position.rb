@@ -7,12 +7,13 @@ class Position < ActiveRecord::Base
     self.candidates.each do |candidate|
       candidate.articles.each do |article|
         #articles.push article
-        if articles.has_key? article.url
-          articles[article.url].candidates.push(candidate)
+        key = article.source + article.title
+        if articles.has_key? key
+          articles[key].candidates.push(candidate)
         else
           #articles[article.url] = {'candidate'=>[candidate], 'article'=>article}
           article.candidates = [candidate]
-          articles[article.url] = article
+          articles[key] = article
         end
       end
     end
