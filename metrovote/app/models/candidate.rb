@@ -2,7 +2,7 @@ require 'twitter'
 require 'rbing'
 
 class Candidate < ActiveRecord::Base
-  #belongs_to :position
+  belongs_to :position
   has_many :tweets
   has_many :posts
   has_many :articles
@@ -75,7 +75,7 @@ class Candidate < ActiveRecord::Base
 
   def get_articles
     bing = RBing.new("E08C094B36831A4E20810A668B43265D1941F8FE")
-    rsp = bing.news(self.name + " " + "seattle")
+    rsp = bing.news(self.name + " " + self.position.election.keyword)
     if rsp.key? 'News'
       rsp.news.results.each do |article|
         created = DateTime.parse(article.Date)
