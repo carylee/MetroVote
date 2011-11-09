@@ -84,7 +84,7 @@
             %p.source= post.source.capitalize
       #candidate-2-endorsements.endorsements
         %h2 Endorsements
-        - @candidate1.endorsements.each do |post|
+        - @candidate2.endorsements.each do |post|
           .post
             %p= auto_link(post.message).html_safe
             %p.source= post.source.capitalize
