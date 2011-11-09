@@ -1,14 +1,14 @@
 .row
   .span8
     .can1.candidate
+      %h2.name= @candidate1.name
       - if @candidate1.is_incumbent
-        %img.incumbent{:src => '/images/incumbent_badge.gif' }
-      %h1= @candidate1.name
+        %span.label.important.name INCUMBENT
   .span8
     .can2.candidate
+      %h2.name= @candidate2.name
       - if @candidate2.is_incumbent
-        %img.incumbent{:src => '/images/incumbent_badge.gif' }
-      %h1= @candidate2.name
+        %span.label.important.name INCUMBENT
 .row.bios
   .span8
     .can1.candidate
