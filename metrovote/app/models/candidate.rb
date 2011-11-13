@@ -2,7 +2,7 @@ require 'twitter'
 require 'rbing'
 
 class Candidate < ActiveRecord::Base
-  #belongs_to :position
+  belongs_to :position
   has_many :tweets
   has_many :posts
   has_many :articles
@@ -66,7 +66,7 @@ class Candidate < ActiveRecord::Base
   def self.get_facebook_info(fb)
     token = "AAADEvdySPLsBAFyCj39cLJFpW8aAAXnr1R5ZCrlZAY2aSlBhrj8BVAGI32TS1eVxEQZC4jZABKZCzyUgZARob2K33YBDxgMVsZD"
     @graph = Koala::Facebook::API.new(token)
-    return @graph.get_object(self.class.parse_facebook_url(fb))
+    return @graph.get_object(self.parse_facebook_url(fb))
   end
 
   def self.parse_facebook_url(url)
@@ -75,11 +75,11 @@ class Candidate < ActiveRecord::Base
 
   def get_articles
     bing = RBing.new("E08C094B36831A4E20810A668B43265D1941F8FE")
-    rsp = bing.news(self.name + " " + "seattle")
+    rsp = bing.news(self.name + " " + self.position.election.keyword)
     if rsp.key? 'News'
       rsp.news.results.each do |article|
         created = DateTime.parse(article.Date)
-        unless Article.exists?(:url=>article.Url, :candidate_id=>self.id)
+        unless Article.exists?(:url=>article.Title, :source => article.Source, :candidate_id=>self.id)
           @a = Article.new(:title => article.Title,
                            :snippet => article.Snippet,
                            :url => article.Url,
