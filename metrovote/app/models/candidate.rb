@@ -99,6 +99,7 @@ class Candidate < ActiveRecord::Base
   def fetch_data
     get_articles
     get_tweets
+    get_fb_posts
   end
 
   def feed
