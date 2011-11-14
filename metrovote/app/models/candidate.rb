@@ -10,9 +10,15 @@ class Candidate < ActiveRecord::Base
   def get_tweets
     if self.twitter != ""
       Twitter.user_timeline(self.twitter).each do |tweet|
-        created = DateTime.parse(tweet.created_at)
+        #created = DateTime.parse(tweet.created_at)
+        created = tweet.created_at
         if tweet.in_reply_to_user_id.nil?
           unless Post.exists?(:post_id=>tweet.id, :source=>'twitter')
+
+            get_urls_from_text(tweet.text).each do |url|
+              add_article_by_url(url)
+            end
+
             @t = Post.new(:message => tweet.text,
                            :source => 'twitter',
                            :picture => tweet.user.profile_image_url,
@@ -35,6 +41,22 @@ class Candidate < ActiveRecord::Base
     end
   end
 
+  def add_article_by_url(url)
+    unless url == ''
+      obj = get_link_info(url)
+      obj.title
+      unless Article.exists?(:url=>obj.url, :candidate_id=>self.id)
+        @a = Article.new(:title => obj.title,
+                         :snippet => obj.description,
+                         :url => obj.url,
+                         :date => Time.now,
+                         :source => get_source_from_url(obj.url),
+                         :candidate_id => self.id)
+        @a.save
+      end
+    end
+  end
+
   def get_fb_posts
     token = "AAADEvdySPLsBAFyCj39cLJFpW8aAAXnr1R5ZCrlZAY2aSlBhrj8BVAGI32TS1eVxEQZC4jZABKZCzyUgZARob2K33YBDxgMVsZD"
     @graph = Koala::Facebook::API.new(token)
@@ -42,6 +64,10 @@ class Candidate < ActiveRecord::Base
     feed.each do |post|
       created = DateTime.parse(post['created_time'])
       unless Post.exists?(:post_id=>post['id'], :source=>'facebook')
+        unless post['link'].nil? or post['link'] == ''
+          add_article_by_url post['link']
+        end
+
         @p = Post.new(:message => post['message'],
                               :source => 'facebook',
                               :picture => post['picture'],
@@ -69,8 +95,26 @@ class Candidate < ActiveRecord::Base
     return @graph.get_object(self.parse_facebook_url(fb))
   end
 
+  def get_source_from_url(url)
+    uri = URI::parse(url)
+    @a = Article.find_by_host(uri.host)
+    return @a.source
+  end
+
   def self.parse_facebook_url(url)
     return URI::split(url)[5].split('/')[-1]
+  end
+
+  def get_urls_from_text(text)
+    p = URI::parse.new
+    return p.extract(text)
+  end
+
+  def get_link_info(url)
+    embedly_api = Embedly::API.new :key => '27b50eca033711e1b1d14040d3dc5c07',
+                                   :caryme => 'Mozilla/5.0 (compatible; metrovote; caryme@gmail.com)'
+    obj = embedly_api.oembed :urls => url
+    return obj[0]
   end
 
   def get_articles
@@ -79,11 +123,13 @@ class Candidate < ActiveRecord::Base
     if rsp.key? 'News'
       rsp.news.results.each do |article|
         created = DateTime.parse(article.Date)
+        uri = URI::parse(article.Url)
         unless Article.exists?(:url=>article.Title, :source => article.Source, :candidate_id=>self.id)
           @a = Article.new(:title => article.Title,
                            :snippet => article.Snippet,
                            :url => article.Url,
                            :date => created,
+                           :host => uri.host,
                            :source => article.Source,
                            :candidate_id => self.id)
           @a.save

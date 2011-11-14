@@ -62,4 +62,5 @@ $(document).ready(function() {
       $("#candidate_twitter").val(twitter);
     });
   });
+  $(".mute").click(function(){ $("body").removeClass('patriotic'); });
 })
