@@ -7,13 +7,15 @@ gem 'rails', '3.0.9'
 
 gem 'sqlite3-ruby', '1.2.5', :require => 'sqlite3'
 
-#gem 'omniauth', :require => 'omniauth/oauth'
 gem 'mash'
 gem 'twitter'
+gem 'omniauth'
+#gem 'twitter', '2.0.0.rc.2'
 gem 'embedly'
 gem 'rbing'
 gem 'koala', '1.2.0'
 gem 'haml'
+gem 'xml-simple'
 gem 'jquery-rails'
 gem 'rake', '0.8.7'
 
