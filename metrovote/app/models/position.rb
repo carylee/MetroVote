@@ -9,10 +9,10 @@ class Position < ActiveRecord::Base
         #articles.push article
         key = article.source + article.title
         if articles.has_key? key
-          articles[key].candidates.push(candidate)
+          articles[key].candidates.add(candidate)
         else
           #articles[article.url] = {'candidate'=>[candidate], 'article'=>article}
-          article.candidates = [candidate]
+          article.candidates = Set.new [candidate]
           articles[key] = article
         end
       end

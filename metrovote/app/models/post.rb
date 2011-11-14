@@ -2,6 +2,7 @@ require 'AlchemyAPI'
 
 class Post < ActiveRecord::Base
   belongs_to :candidate
+  default_scope :order => 'posted_at DESC'
 
   def bold_people
     @alchemy = AlchemyAPI.new
