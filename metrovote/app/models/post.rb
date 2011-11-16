@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
   belongs_to :candidate
   default_scope :order => 'posted_at DESC'
 
-  def bold_people
+  def bold_endorsers
     @alchemy = AlchemyAPI.new
     @alchemy.setAPIKey( '7f276adf084fe106532aca9a8c347db01ebadf02')
     result = ActiveSupport::JSON.decode(@alchemy.TextGetRankedNamedEntities(self.message, AlchemyAPI::OutputMode::JSON))
