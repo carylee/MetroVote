@@ -22,6 +22,8 @@
                   - @positions.each do |position|
                     %li
                       %a{:href => '/positions/' + position.id.to_s}= position.title
+                  %li
+                    %a.mute{:href => '#'} Redcoats
     .container
       .content
         = yield
