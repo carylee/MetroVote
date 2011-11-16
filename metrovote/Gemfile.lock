@@ -175,6 +175,7 @@ DEPENDENCIES
   haml
   jquery-rails
   koala (= 1.2.0)
+  nokogiri
   omniauth
   rails (= 3.0.9)
   rake (= 0.8.7)

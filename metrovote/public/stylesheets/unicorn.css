@@ -40,6 +40,7 @@ div.can1 h2.name {
     font-weight: bold;
     color: #404040;
     text-align:left;
+    font-family: Georgia;
 }
 
 /* candidate name, overrides bootstrap */ 
@@ -48,6 +49,7 @@ div.can2 h2.name {
     font-weight: bold;
     color: #404040;
     text-align:right;
+    font-family: Georgia;
 }
 
 .can1 img.portrait {
@@ -76,10 +78,18 @@ div.can2 h2.name {
   font-size: 110%;
   line-height: 20px;
   margin: 8px 0px;
+  font-family: Georgia;
 }
 
 #news div.story p {
   font-size: 90%;
+  font-family: Georgia;
+}
+
+#news div.story p.source {
+  font-size: 80%;
+  font-family: Arial, Helvetica;
+  text-transform:uppercase;
 }
 
 .can2 img.portrait {
@@ -114,6 +124,10 @@ a.position {
 
 a.position:hover {
   text-decoration: none;
+}
+
+ul.tabs {
+  margin: 0 0 0px;
 }
 
 .position .right {
@@ -157,7 +171,7 @@ a.position:hover {
   background: rgba(238, 238, 238, 0.6);*/
   padding: 5px;
   margin-bottom: 16px;
-  background: #eee;
+  background: white;
   -webkit-border-radius: 0 0 6px 6px;
   -moz-border-radius: 0 0 6px 6px;
   border-radius: 0 0 6px 6px;
@@ -168,7 +182,8 @@ a.position:hover {
 }
 
 .content {
-  background: rgba(255,255,255,0.8);
+/*  background: rgba(255,255,255,0.8); */
+  background: white;
   padding: 5px;
   margin: -5px;
   margin-top: 50px;
@@ -193,5 +208,5 @@ div.socialmedia {
 }*/
 
 .source {
-color: #868686;
+  color: #868686;
 }

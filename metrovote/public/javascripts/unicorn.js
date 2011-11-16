@@ -13,7 +13,7 @@ var bios = function(){
     updateLabel();
   }
   var updateLabel = function() {
-    var label = visible ? "Less" : "More";
+    var label = visible ? "Hide" : "Show";
     trigger.html(label);
   }
   var init = function(){
