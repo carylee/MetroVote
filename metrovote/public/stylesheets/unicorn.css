@@ -168,16 +168,17 @@ ul.tabs {
   /*-webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  background: rgba(238, 238, 238, 0.6);*/
+  background: rgba(238, 238, 238, 0.6); */
   padding: 5px;
-  margin-bottom: 16px;
-  background: white;
+  margin-bottom: 10px;
+  /* background: white;
   -webkit-border-radius: 0 0 6px 6px;
   -moz-border-radius: 0 0 6px 6px;
   border-radius: 0 0 6px 6px;
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-  box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  box-shadow: 0 1px 2px rgba(0,0,0,.15);*/
+  border-bottom: 1px solid rgba(0,0,0,.15);
 
 }
 
