@@ -1,37 +1,38 @@
-.row
-  .span8
-    .can1.candidate
-      %h2.name= @candidate1.name
-      - if @candidate1.is_incumbent
-        %span.label.important.name INCUMBENT
-  .span8
-    .can2.candidate
-      %h2.name= @candidate2.name
-      - if @candidate2.is_incumbent
-        %span.label.important.name INCUMBENT
-.row.bios
-  .span8
-    .can1.candidate
-      %img.portrait{:src => @candidate1.photo }/
-      .bio
-        %p= @candidate1.bio
-      .contact
-        %ul.unstyled
-          %li
-            %a{:href => @candidate1.website, :target => "_blank"}= @candidate1.website
-          %li= mail_to @candidate1.email
-          %li= number_to_phone(@candidate1.phone, :area_code => true)
-  .span8
-    .can2.candidate
-      %img.portrait{:src => @candidate2.photo}/
-      .bio.can2
-        %p= @candidate2.bio
-      .contact
-        %ul.unstyled
-          %li
-            %a{:href => @candidate2.website, :target => "_blank"}= @candidate2.website
-          %li= mail_to @candidate2.email
-          %li= number_to_phone(@candidate2.phone, :area_code => true)
+#candidates
+  .row
+    .span8
+      .can1.candidate
+        %h2.name= @candidate1.name
+        - if @candidate1.is_incumbent
+          %span.label.important.name INCUMBENT
+    .span8
+      .can2.candidate
+        %h2.name= @candidate2.name
+        - if @candidate2.is_incumbent
+          %span.label.important.name INCUMBENT
+  .row.bios
+    .span8
+      .can1.candidate
+        %img.portrait{:src => @candidate1.photo }/
+        .bio
+          %p= @candidate1.bio
+        .contact
+          %ul.unstyled
+            %li
+              %a{:href => @candidate1.website, :target => "_blank"}= @candidate1.website
+            %li= mail_to @candidate1.email
+            %li= number_to_phone(@candidate1.phone, :area_code => true)
+    .span8
+      .can2.candidate
+        %img.portrait{:src => @candidate2.photo}/
+        .bio.can2
+          %p= @candidate2.bio
+        .contact
+          %ul.unstyled
+            %li
+              %a{:href => @candidate2.website, :target => "_blank"}= @candidate2.website
+            %li= mail_to @candidate2.email
+            %li= number_to_phone(@candidate2.phone, :area_code => true)
 .row
   .span16
     .collapse-expand
