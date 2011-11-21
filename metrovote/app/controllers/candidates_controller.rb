@@ -28,23 +28,6 @@ class CandidatesController < ApplicationController
       format.json{ render :json => @c.to_json }
     end
   end
-  
-  def scrape(website)
-    doc = Nokogiri::HTML(open(website))
-	phone_matches = /\(?\b([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})\b/i.match(doc)
-	if phone_matches.nil?
-	  phone = ""
-	else
-	  phone = phone_matches[0]
-	end
-	email_matches = /[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})/i.match(doc)
-	if email_matches.nil?
-	  email = ""
-	else
-	  email = email_matches[0]
-	  scraped = Array[email, phone]
-	end
-  end
 
   # GET /candidates/new
   # GET /candidates/new.xml
@@ -106,4 +89,70 @@ class CandidatesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def get_contact(url)
+    @doc = Nokogiri::HTML(open(url))
+    @doc.xpath("//a").each do |link|
+      matches = /contact/i.match(link.children.text)
+      unless matches.nil?
+        path = make_absolute(link.attributes['href'].value, url)
+        return path
+      end
+    end
+    return nil
+  end
+
+  def make_absolute( href, root )
+    URI.parse(root).merge(URI.parse(href)).to_s
+  end
+
+  def scrape(website)
+    doc = Nokogiri::HTML(open(website))
+    puts "worked once"
+    phone_matches = /\(?\b([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})\b/i.match(doc)
+    if phone_matches.nil?
+      phone = ""
+    else
+      phone = phone_matches[0]
+    end
+    email_matches = /[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})/i.match(doc)
+    if email_matches.nil?
+      email = ""
+    else
+      email = email_matches[0]
+    end
+    scraped = {:email => email, :phone => phone}
+    return scraped
+  end
+
+  def fix_http_if_missing(url)
+    matches = /http/i.match(url)
+    if matches.nil?
+      url = "http://" + url
+    end
+    return url
+  end
+
+  def contact_info
+    url = fix_http_if_missing params[:url]
+    info = scrape(url)
+    phone = info[:phone]
+    email = info[:email]
+    if info[:email].empty? or info[:phone].empty?
+      contact_url = get_contact(url)
+      unless contact_url.nil?
+        backup = scrape(contact_url)
+        unless backup[:email].empty?
+          email = backup[:email]
+        end
+        unless backup[:phone].empty?
+          phone = backup[:phone]
+        end
+      end
+    end
+    respond_to do |format|
+      format.json{ render :json => {:email => email, :phone => phone}.to_json }
+    end
+  end
+
 end

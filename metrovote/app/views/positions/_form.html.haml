@@ -1,0 +1,24 @@
+= form_for(@position) do |f|
+  - if @position.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@position.errors.count, "error")
+        prohibited this position from being saved:
+      %ul
+        - @position.errors.full_messages.each do |msg|
+          %li= msg
+  .fieldset
+    .clearfix
+      = f.label :title
+      .input
+        = f.text_field :title
+    .clearfix
+      = f.label :region_number
+      .input
+        = f.text_field :region_number
+    .clearfix
+      = f.label :description
+      .input
+        = f.text_area :description
+  .actions
+    = f.submit "Save", :class => 'btn primary'
