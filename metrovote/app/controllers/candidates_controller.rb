@@ -1,3 +1,4 @@
+require 'open-uri'
 class CandidatesController < ApplicationController
   # GET /candidates
   # GET /candidates.xml
@@ -26,6 +27,23 @@ class CandidatesController < ApplicationController
     respond_to do |format|
       format.json{ render :json => @c.to_json }
     end
+  end
+  
+  def scrape(website)
+    doc = Nokogiri::HTML(open(website))
+	phone_matches = /\(?\b([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})\b/i.match(doc)
+	if phone_matches.nil?
+	  phone = ""
+	else
+	  phone = phone_matches[0]
+	end
+	email_matches = /[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})/i.match(doc)
+	if email_matches.nil?
+	  email = ""
+	else
+	  email = email_matches[0]
+	  scraped = Array[email, phone]
+	end
   end
 
   # GET /candidates/new

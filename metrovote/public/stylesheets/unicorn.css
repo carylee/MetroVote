@@ -5,7 +5,14 @@
 }*/
 
 html, body {
-  background-image: url('/images/whitey.png');
+  background-image: url('/images/rumsey-map-edit.jpg');
+}
+
+#candidates {
+  background: #eee;
+  margin-left: -5px;
+  margin-right: -5px;
+  margin-top: -5px;
 }
 
 div.candidate {
@@ -16,6 +23,7 @@ div.candidate {
 div.candidate img.portrait {
   width: 200px;
   padding-bottom: 10px;
+  opacity: 1;
 }
 
 .can1 div.contact, #can1 h1, #can1 h2, #can1 h3{
@@ -40,6 +48,7 @@ div.can1 h2.name {
     font-weight: bold;
     color: #404040;
     text-align:left;
+    font-family: Georgia;
 }
 
 /* candidate name, overrides bootstrap */ 
@@ -48,6 +57,7 @@ div.can2 h2.name {
     font-weight: bold;
     color: #404040;
     text-align:right;
+    font-family: Georgia;
 }
 
 .can1 img.portrait {
@@ -60,26 +70,35 @@ div.can2 h2.name {
 }
 
 #news div.story {
-  background: #eee;
+  background: white;
   padding: 4px;
   margin: -4px;
   margin-bottom: 16px; 
-  -webkit-border-radius: 0 0 6px 6px;
+ /* -webkit-border-radius: 0 0 6px 6px;
   -moz-border-radius: 0 0 6px 6px;
   border-radius: 0 0 6px 6px;
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-  box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  box-shadow: 0 1px 2px rgba(0,0,0,.15); */
+  border-bottom: 1px solid rgba(0,0,0,.15);
 }
 
 #news div.story h3 {
   font-size: 110%;
   line-height: 20px;
   margin: 8px 0px;
+  font-family: Georgia;
 }
 
 #news div.story p {
   font-size: 90%;
+  font-family: Georgia;
+}
+
+#news div.story p.source {
+  font-size: 80%;
+  font-family: Arial, Helvetica;
+  text-transform:uppercase;
 }
 
 .can2 img.portrait {
@@ -116,6 +135,10 @@ a.position:hover {
   text-decoration: none;
 }
 
+ul.tabs {
+  margin: 0 0 0px;
+}
+
 .position .right {
   text-align: left;
   float: right;
@@ -144,6 +167,8 @@ a.position:hover {
   height: 20px;
   text-align: center;
   background-color: #eee;
+  margin-left: -5px;
+  margin-right: -5px;
 }
 
 .collapse-expand:hover {
@@ -154,21 +179,23 @@ a.position:hover {
   /*-webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  background: rgba(238, 238, 238, 0.6);*/
+  background: rgba(238, 238, 238, 0.6); */
   padding: 5px;
-  margin-bottom: 16px;
-  background: #eee;
+  margin-bottom: 10px;
+  /* background: white;
   -webkit-border-radius: 0 0 6px 6px;
   -moz-border-radius: 0 0 6px 6px;
   border-radius: 0 0 6px 6px;
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-  box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  box-shadow: 0 1px 2px rgba(0,0,0,.15);*/
+  border-bottom: 1px solid rgba(0,0,0,.15);
 
 }
 
 .content {
-  background: rgba(255,255,255,0.8);
+/*  background: rgba(255,255,255,0.8); */
+  background: rgba(255,255,255,.9);
   padding: 5px;
   margin: -5px;
   margin-top: 50px;
@@ -182,6 +209,13 @@ a.position:hover {
 
 div.socialmedia {
   clear:both;
+  border-right: 1px solid rgba(0,0,0,.15);
+  border-left: 1px solid rgba(0,0,0,.15);
+}
+
+div.endorsements {
+  border-right: 1px solid rgba(0,0,0,.15);
+  border-left: 1px solid rgba(0,0,0,.15);
 }
 
 /*div.news{
@@ -193,7 +227,7 @@ div.socialmedia {
 }*/
 
 .source {
-color: #868686;
+  color: #868686;
 }
 
 .patriotic {
