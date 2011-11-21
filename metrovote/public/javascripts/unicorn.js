@@ -54,7 +54,7 @@ $(document).ready(function() {
   bios.init();
 
   inputs = $("#candidate_name, #candidate_bio, #candidate_photo, #candidate_website, #candidate_twitter, #candidate_email");
-  inputs.attr("diabled", true);
+  inputs.attr("disabled", true);
   $("#facebook-fetch").click(function(e){
     e.preventDefault();
     var fb = $("#candidate_facebook").val();
@@ -76,7 +76,7 @@ $(document).ready(function() {
       $("#candidate_photo").val(data.picture);
       $("#candidate_website").val(website);
       $("#candidate_twitter").val(twitter);
-      inputs.removeAttr("diabled");
+      inputs.removeAttr("disabled");
       if(website && website != "")
       {
         setContactInfo(website);
