@@ -183,5 +183,6 @@ DEPENDENCIES
   rbing
   sqlite3-ruby (= 1.2.5)
   twitter (= 1.7.2)
+  typhoeus (= 0.3.3)
   tzinfo
   xml-simple
