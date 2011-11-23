@@ -73,9 +73,9 @@ div.can2 h2.name {
 #news div.story {
   background: white;
   padding: 4px;
-  margin: -4px;
+  /* margin: -4px;
   margin-bottom: 16px; 
- /* -webkit-border-radius: 0 0 6px 6px;
+  -webkit-border-radius: 0 0 6px 6px;
   -moz-border-radius: 0 0 6px 6px;
   border-radius: 0 0 6px 6px;
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
