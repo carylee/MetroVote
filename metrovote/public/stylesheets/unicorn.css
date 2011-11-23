@@ -208,8 +208,7 @@ ul.tabs {
 }
 
 .content {
-/*  background: rgba(255,255,255,0.8); */
-  background: rgba(255,255,255,.9);
+  background: rgba(255,255,255,.7);
   padding: 20px;
   margin: -5px;
   margin-top: 50px;
@@ -223,17 +222,14 @@ ul.tabs {
 
 div.socialmedia {
   clear:both;
-  border-right: 1px solid rgba(0,0,0,.15);
-  border-left: 1px solid rgba(0,0,0,.15);
-<<<<<<< HEAD
-  background: darkblue;
+  border-right: 3px solid #dccbb5;
+  border-left: 3px solid #dccbb5;
+  background: rgba(0,0,0,1);
 }
 
 div.active {
-    background: darkblue;
-=======
+  background: rgba(255,255,255,1);
   background-color: rgba(255,255,255,1);
->>>>>>> 35d4f6d5f9400220032237aa121f62a0d5a005c1
 }
 
 div.endorsements {
@@ -268,5 +264,5 @@ div.collapsed {
 }
 
 div.post {
-  color: white;
+  color: black;
 }
