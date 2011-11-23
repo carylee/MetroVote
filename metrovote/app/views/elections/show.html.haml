@@ -1,0 +1,22 @@
+%p#notice
+  =notice
+.page-header
+  %h1= @election.title
+%p
+  %b Location:
+  = @election.location
+%p
+  %b Keyword:
+  = @election.keyword
+
+%h2 Positions
+%table
+  - @election.positions.each do |position|
+    %tr
+      %td= position.title
+      %td= link_to "Show", position, :class => 'btn primary'
+      %td= link_to "Edit", edit_position_path(position), :class => 'btn primary'
+= link_to "New position", new_position_path, :class => 'btn primary'
+%br
+= link_to 'Edit', edit_election_path(@election)
+= link_to 'Back', elections_path

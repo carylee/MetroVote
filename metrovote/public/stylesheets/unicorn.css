@@ -84,6 +84,13 @@ div.can2 h2.name {
   border-bottom: 1px solid rgba(0,0,0,.15);
 }
 
+#news h2 {
+  font-size: 30px;
+  line-height: 20px;
+  margin: 10px 0px 10px 0px;
+  font-family: Georgia;
+}
+
 #news div.story h3 {
   font-size: 110%;
   line-height: 20px;
@@ -218,11 +225,15 @@ div.socialmedia {
   clear:both;
   border-right: 1px solid rgba(0,0,0,.15);
   border-left: 1px solid rgba(0,0,0,.15);
+<<<<<<< HEAD
   background: darkblue;
 }
 
 div.active {
     background: darkblue;
+=======
+  background-color: rgba(255,255,255,1);
+>>>>>>> 35d4f6d5f9400220032237aa121f62a0d5a005c1
 }
 
 div.endorsements {
