@@ -13,7 +13,15 @@ var bios = function(){
     updateLabel();
   }
   var updateLabel = function() {
-    var label = visible ? "Hide" : "Show";
+    var label = visible ? "Hide Bios <img src='/images/chevUp.png' />" : "Show Bios <img src='/images/chevDown.png' />";
+   /* if(visible) {
+      trigger.removeClass("collapsed");
+      trigger.addClass("expanded");
+    } else {
+      trigger.addClass("collapsed");
+      trigger.removeClass("expanded");
+    } */
+    var className = visible ? "expanded" : "collapsed";
     trigger.html(label);
   }
   var init = function(){

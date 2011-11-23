@@ -6,6 +6,7 @@
 
 html, body {
   background-image: url('/images/rumsey-map-edit.jpg');
+  background-attachment: fixed;
 }
 
 #candidates {
@@ -169,10 +170,12 @@ ul.tabs {
   background-color: #eee;
   margin-left: -5px;
   margin-right: -5px;
+/*  background-image: url('/images/chevUp.png'); */
 }
 
 .collapse-expand:hover {
   background: rgba(0, 105, 214, 0.6);
+/*  background-image: url('/images/chevUp.png'); */
 }
 
 .feeds div div{
@@ -193,10 +196,14 @@ ul.tabs {
 
 }
 
+.container {
+  width: 970px;
+}
+
 .content {
 /*  background: rgba(255,255,255,0.8); */
   background: rgba(255,255,255,.9);
-  padding: 5px;
+  padding: 20px;
   margin: -5px;
   margin-top: 50px;
   -webkit-border-radius: 0 0 6px 6px;
@@ -211,6 +218,11 @@ div.socialmedia {
   clear:both;
   border-right: 1px solid rgba(0,0,0,.15);
   border-left: 1px solid rgba(0,0,0,.15);
+  background: darkblue;
+}
+
+div.active {
+    background: darkblue;
 }
 
 div.endorsements {
@@ -232,4 +244,18 @@ div.endorsements {
 
 .patriotic {
   background-image: url(http://www.octaxcol.com/images/flagwave1.gif);
+}
+
+div.expanded {
+/*  background-image: url('/images/chevUp.png'); */
+    background: green;
+}
+  
+div.collapsed {
+/*  background-image: url('/images/chevUp.png');*/
+  background: red;
+}
+
+div.post {
+  color: white;
 }
