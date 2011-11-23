@@ -145,6 +145,7 @@ a.position:hover {
 
 ul.tabs {
   margin: 0 0 0px;
+  border-bottom: 3px solid #dccbb5;
 }
 
 .position .right {
