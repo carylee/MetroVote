@@ -13,11 +13,11 @@ class Candidate < ActiveRecord::Base
         #created = DateTime.parse(tweet.created_at)
         created = tweet.created_at
         if tweet.in_reply_to_user_id.nil?
-          unless Post.exists?(:post_id=>tweet.id, :source=>'twitter')
+          unless Post.exists?(:post_id=>tweet.id, :source=>'twitter', :candidate_id => self.id)
 
-            get_urls_from_text(tweet.text).each do |url|
-              add_article_by_url(url)
-            end
+            #get_urls_from_text(tweet.text).each do |url|
+              #add_article_by_url(url)
+            #end
 
             @t = Post.new(:message => tweet.text,
                            :source => 'twitter',
@@ -43,6 +43,7 @@ class Candidate < ActiveRecord::Base
 
   def add_article_by_url(url)
     unless url == ''
+      logger.debug(url)
       obj = get_link_info(url)
       obj.title
       unless Article.exists?(:url=>obj.url, :candidate_id=>self.id)
@@ -63,10 +64,10 @@ class Candidate < ActiveRecord::Base
     feed = @graph.get_connections(self.class.parse_facebook_url(self.facebook), "feed")
     feed.each do |post|
       created = DateTime.parse(post['created_time'])
-      unless Post.exists?(:post_id=>post['id'], :source=>'facebook')
-        unless post['link'].nil? or post['link'] == ''
-          add_article_by_url post['link']
-        end
+      unless Post.exists?(:post_id=>post['id'], :source=>'facebook', :candidate_id => self.id)
+        #unless post['link'].nil? or post['link'] == ''
+          #add_article_by_url post['link']
+        #end
 
         @p = Post.new(:message => post['message'],
                               :source => 'facebook',
@@ -106,7 +107,7 @@ class Candidate < ActiveRecord::Base
   end
 
   def get_urls_from_text(text)
-    p = URI::parse.new
+    p = URI::Parser.new
     return p.extract(text)
   end
 
@@ -124,7 +125,8 @@ class Candidate < ActiveRecord::Base
       rsp.news.results.each do |article|
         created = DateTime.parse(article.Date)
         uri = URI::parse(article.Url)
-        unless Article.exists?(:url=>article.Title, :source => article.Source, :candidate_id=>self.id)
+        logger.debug(article)
+        unless Article.exists?(:title=>article.Title, :source => article.Source, :candidate_id=>self.id)
           @a = Article.new(:title => article.Title,
                            :snippet => article.Snippet,
                            :url => article.Url,
@@ -145,6 +147,7 @@ class Candidate < ActiveRecord::Base
   def fetch_data
     get_articles
     get_tweets
+    get_fb_posts
   end
 
   def feed

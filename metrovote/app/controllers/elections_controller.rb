@@ -44,7 +44,7 @@ class ElectionsController < ApplicationController
 
     respond_to do |format|
       if @election.save
-        format.html { redirect_to(@election, :notice => 'Election was successfully created.') }
+        format.html { redirect_to([:admin,@election], :notice => 'Election was successfully created.') }
         format.xml  { render :xml => @election, :status => :created, :location => @election }
       else
         format.html { render :action => "new" }

@@ -1,6 +1,6 @@
-= form_for([@election,@position]) do |f|
+= form_for([:admin,@election,@position]) do |f|
   - if @position.errors.any?
-    #error_explanation
+    #error-explanation
       %h2
         = pluralize(@position.errors.count, "error")
         prohibited this position from being saved:
@@ -22,3 +22,4 @@
         = f.text_area :description
   .actions
     = f.submit "Save", :class => 'btn primary'
+    =link_to "Cancel", admin_election_positions_path, :class => "btn secondary"

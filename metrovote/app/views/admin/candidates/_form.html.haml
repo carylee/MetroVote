@@ -1,0 +1,51 @@
+= form_for([:admin,@election,@position,@candidate]) do |f|
+  - if @candidate.errors.any?
+    #error-explanation
+      %h2
+        = pluralize(@candidate.errors.count, "error")
+        prohibited this candidate from being saved:
+      %ul
+        =@candidate.errors.full_messages.each do |msg|
+          %li= msg
+
+  %fieldset
+    .clearfix
+      = f.label :facebook
+      .input
+        = f.text_field :facebook
+        %button#facebook-fetch.btn Fetch from Facebook
+    .clearfix
+      = f.label :is_incumbent
+      .input
+        = f.check_box :is_incumbent
+    .clearfix
+      = f.label :name
+      .input
+        = f.text_field :name
+    .clearfix
+      = f.label :bio
+      .input
+        = f.text_area :bio
+    .clearfix
+      = f.label :photo
+      .input
+        = f.text_field :photo
+    .clearfix
+      = f.label :website
+      .input
+        = f.text_field :website
+    .clearfix
+      = f.label :email
+      .input
+        = f.text_field :email
+    .clearfix
+      = f.label :phone
+      .input
+        = f.text_field :phone
+    .clearfix
+      = f.label :twitter
+      .input
+        = f.text_field :twitter
+    .actions
+      = f.submit "Save", :class => "btn primary"
+      = link_to "Cancel", admin_election_position_candidates_path, :class => 'btn secondary' 

@@ -1,0 +1,16 @@
+%table.zebra-striped
+  %thead
+    %tr
+      %th Title
+      %th Region number
+  - @positions.each do |position|
+    %tr
+      %td
+        =position.title
+      %td
+        =position.region_number
+      %td
+        =link_to "Show", "/admin/elections/#{position.election_id.to_s}/positions/#{position.id.to_s}", :class => "btn primary"
+      %td
+        =link_to "Edit", "/admin/elections/#{position.election_id.to_s}/positions/#{position.id.to_s}/edit", :class => "btn primary"
+=link_to "New Position", "/admin/elections/#{@election.id.to_s}/positions/new", :class => "btn primary"

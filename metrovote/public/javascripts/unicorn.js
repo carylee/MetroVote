@@ -54,8 +54,8 @@ $(document).ready(function() {
   bios.init();
 
   inputs = $("#candidate_name, #candidate_bio, #candidate_photo, #candidate_website, #candidate_twitter, #candidate_email");
-  inputs.attr("disabled", true);
   $("#facebook-fetch").click(function(e){
+    inputs.attr("disabled", true);
     e.preventDefault();
     var fb = $("#candidate_facebook").val();
     $.getJSON('/candidates/facebook', {'fb': fb}, function(data) {

@@ -1,0 +1,66 @@
+.page-header
+  %h1= @position.title
+  =link_to "View site", position_path(@position)
+
+
+.row
+  .span8
+    -if @candidate1.nil?
+      =link_to "New Candidate", new_admin_election_position_candidate_path(@election, @position), :class => "btn primary"
+    -else
+      %h2= @candidate1.name
+      %img{:src => @candidate1.photo}
+      %p= @candidate1.bio
+  .span8
+    -if @candidate2.nil?
+      =link_to "New Candidate", new_admin_election_position_candidate_path(@election, @position), :class => "btn primary"
+    -else
+      %h2= @candidate2.name
+      %img{:src => @candidate2.photo}
+      %p= @candidate2.bio
+.row
+  .span8
+    -unless @candidate1.nil?
+      %table
+        %tr
+          %th Website
+          %td= @candidate1.website
+        %tr
+          %th Twitter
+          %td= @candidate1.twitter
+        %tr
+          %th Facebook
+          %td= @candidate1.facebook
+        %tr
+          %th Phone
+          %td= @candidate1.phone
+        %tr
+          %th Email
+          %td= @candidate1.email
+        %tr
+          %th Is incumbent
+          %td= @candidate1.is_incumbent.to_s
+      =link_to "Edit Candidate", edit_admin_election_position_candidate_path(@election, @position, @candidate1), :class => "btn primary"
+  .span8
+    -unless @candidate2.nil?
+      %table
+        %tr
+          %th Website
+          %td= @candidate2.website
+        %tr
+          %th Twitter
+          %td= @candidate2.twitter
+        %tr
+          %th Facebook
+          %td= @candidate2.facebook
+        %tr
+          %th Phone
+          %td= @candidate2.phone
+        %tr
+          %th Email
+          %td= @candidate2.email
+        %tr
+          %th Is incumbent
+          %td= @candidate2.is_incumbent.to_s
+      =link_to "Edit Candidate", edit_admin_election_position_candidate_path(@election, @position, @candidate2), :class => "btn primary"
+

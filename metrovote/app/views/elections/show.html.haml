@@ -16,7 +16,7 @@
       %td= position.title
       %td= link_to "Show", position, :class => 'btn primary'
       %td= link_to "Edit", edit_position_path(position), :class => 'btn primary'
-= link_to "New position", new_position_path, :class => 'btn primary'
+= link_to "New position", '/elections/' + @election.id.to_s + '/positions/new', :class => 'btn primary'
 %br
 = link_to 'Edit', edit_election_path(@election)
 = link_to 'Back', elections_path

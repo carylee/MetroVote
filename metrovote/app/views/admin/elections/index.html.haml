@@ -1,0 +1,23 @@
+.page-header
+  %h1 Listing elections
+%table.zebra-striped
+  %thead
+    %tr
+      %th Title
+      %th Location
+      %th Keyword
+      %th
+      %th
+      %th
+  - @elections.each do |election|
+    %tr
+      %td= election.title
+      %td= election.location
+      %td= election.keyword
+      %td
+        =link_to "Show", admin_election_path(election.id), :class => "btn primary"
+      %td
+        =link_to "Edit", edit_admin_election_path(election), :class => "btn primary"
+      %td= link_to 'Destroy', admin_election_path(election.id), :confirm => 'Are you sure?', :method => :delete
+
+=link_to "New Election", new_admin_election_path, :class => "btn primary"

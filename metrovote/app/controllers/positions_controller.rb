@@ -17,6 +17,8 @@ class PositionsController < ApplicationController
     @position = Position.find(params[:id])
     @candidate1 = @position.candidates[0]
     @candidate2 = @position.candidates[1]
+    logger.debug(@candidate1)
+    logger.debug(@candidate2)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,10 +26,11 @@ class PositionsController < ApplicationController
     end
   end
 
-  # GET /positions/new
-  # GET /positions/new.xml
+  # GET /elections/:election_id/positions/new
+  # GET /elections/:election_id/positions/new.xml
   def new
-    @position = Position.new
+    @election = Election.find(params[:election_id])
+    @position = @election.positions.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,7 +38,7 @@ class PositionsController < ApplicationController
     end
   end
 
-  # GET /positions/1/edit
+  # GET /elections/1/positions/1/edit
   def edit
     @position = Position.find(params[:id])
   end
@@ -43,7 +46,8 @@ class PositionsController < ApplicationController
   # POST /positions
   # POST /positions.xml
   def create
-    @position = Position.new(params[:position])
+    @election = Election.find(params[:election_id])
+    @position = @election.positions.build(params[:position])
 
     respond_to do |format|
       if @position.save

@@ -21,7 +21,7 @@
             %li
               %a{:href => @candidate1.website, :target => "_blank"}= @candidate1.website
             %li= mail_to @candidate1.email
-            %li= number_to_phone(@candidate1.phone, :area_code => true)
+            %li= number_to_phone(@candidate1.phone.gsub(/[^0-9]/, ''), :area_code => true)
     .span8
       .can2.candidate
         %img.portrait{:src => @candidate2.photo}/
@@ -32,7 +32,7 @@
             %li
               %a{:href => @candidate2.website, :target => "_blank"}= @candidate2.website
             %li= mail_to @candidate2.email
-            %li= number_to_phone(@candidate2.phone, :area_code => true)
+            %li= number_to_phone(@candidate2.phone.gsub(/[^0-9]/, ''), :area_code => true)
 .row
   .span16
     .collapse-expand
