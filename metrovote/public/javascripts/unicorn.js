@@ -53,6 +53,7 @@ var setContactInfo = function(url) {
   $.getJSON('/candidates/contact-info.json', {'url':url}, function(data) {
     $("input#candidate_email").val(data.email);
     $("input#candidate_phone").val(data.phone);
+    $("input#candidate_twitter").val(data.twitter);
     inputs.removeAttr("disabled");
   })
 }
