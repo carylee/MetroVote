@@ -18,6 +18,7 @@ gem 'xml-simple'
 gem 'jquery-rails'
 gem 'rake', '0.8.7'
 gem 'tzinfo'
+gem 'typhoeus', '0.3.3'
 
 # Use unicorn as the web server
 # gem 'unicorn'
