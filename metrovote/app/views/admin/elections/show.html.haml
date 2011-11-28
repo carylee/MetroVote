@@ -21,3 +21,7 @@
 %br/
 = link_to 'Edit election', edit_admin_election_path(@election), :class => 'btn secondary'
 = link_to 'List elections', admin_elections_path, :class => 'btn secondary'
+%h2 Including the following news sources:
+%ul
+  - @election.article_sources.each do |source|
+    %li= "#{source.source} (#{source.host})"
