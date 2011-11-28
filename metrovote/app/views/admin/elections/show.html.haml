@@ -24,4 +24,4 @@
 %h2 Including the following news sources:
 %ul
   - @election.article_sources.each do |source|
-    %li= "#{source.source} (#{source.host})"
+    %li= "#{source.source} (#{source.host}) - #{source.count}"

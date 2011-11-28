@@ -12,6 +12,7 @@ class Election < ActiveRecord::Base
   end
 
   def article_sources
-    Article.find_by_sql ["select source,host from articles where candidate_id IN (?) group by source", self.candidate_ids.join(', ')]
+    ids = self.candidate_ids.join(", ").gsub(/(\d+)/,"'\\1'")
+    Article.find_by_sql "select source,host,count(source) as count from articles where candidate_id IN (#{ids}) group by source"
   end
 end
