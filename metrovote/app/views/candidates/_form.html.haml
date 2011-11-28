@@ -41,7 +41,7 @@
     .clearfix
       = f.label :position_id
       .input
-        =f.select(:position_id, Position.all.collect {|p| [p.title, p.id] })
+        =f.select(:position_id, Position.all.collect {|p| [p.title, p.id] }, {:include_blank => true})
     .clearfix
       = f.label :twitter
       .input
