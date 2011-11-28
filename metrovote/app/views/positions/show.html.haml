@@ -1,38 +1,46 @@
 #candidates
   .row
     .span8
-      .can1.candidate
-        %h2.name= @candidate1.name
-        - if @candidate1.is_incumbent
-          %span.label.important.name INCUMBENT
+      -unless @candidate1.nil?
+        .can1.candidate
+          %h2.name= @candidate1.name
+          - if @candidate1.is_incumbent
+            %span.label.important.name INCUMBENT
     .span8
-      .can2.candidate
-        %h2.name= @candidate2.name
-        - if @candidate2.is_incumbent
-          %span.label.important.name INCUMBENT
+      -unless @candidate2.nil?
+        .can2.candidate
+          %h2.name= @candidate2.name
+          - if @candidate2.is_incumbent
+            %span.label.important.name INCUMBENT
   .row.bios
     .span8
-      .can1.candidate
-        %img.portrait{:src => @candidate1.photo }/
-        .bio
-          %p= @candidate1.bio
-        .contact
-          %ul.unstyled
-            %li
-              %a{:href => @candidate1.website, :target => "_blank"}= @candidate1.website
-            %li= mail_to @candidate1.email
-            %li= number_to_phone(@candidate1.phone.gsub(/[^0-9]/, ''), :area_code => true)
+      -unless @candidate1.nil?
+        .can1.candidate
+          %img.portrait{:src => @candidate1.photo }/
+          .bio
+            %p= @candidate1.bio
+          .contact
+            %ul.unstyled
+              %li
+                %a{:href => @candidate1.website, :target => "_blank"}= @candidate1.website
+              -if @candidate1.email
+                %li= mail_to @candidate1.email
+              -if @candidate1.phone
+                %li= number_to_phone(@candidate1.phone.gsub(/[^0-9]/, ''), :area_code => true)
     .span8
-      .can2.candidate
-        %img.portrait{:src => @candidate2.photo}/
-        .bio.can2
-          %p= @candidate2.bio
-        .contact
-          %ul.unstyled
-            %li
-              %a{:href => @candidate2.website, :target => "_blank"}= @candidate2.website
-            %li= mail_to @candidate2.email
-            %li= number_to_phone(@candidate2.phone.gsub(/[^0-9]/, ''), :area_code => true)
+      -unless @candidate2.nil?
+        .can2.candidate
+          %img.portrait{:src => @candidate2.photo}/
+          .bio.can2
+            %p= @candidate2.bio
+          .contact
+            %ul.unstyled
+              %li
+                %a{:href => @candidate2.website, :target => "_blank"}= @candidate2.website
+              -if @candidate2.email
+                %li= mail_to @candidate2.email
+              -if @candidate2.phone
+                %li= number_to_phone(@candidate2.phone.gsub(/[^0-9]/, ''), :area_code => true)
 .row
   .span16
     .collapse-expand
@@ -44,16 +52,17 @@
       %li
         %a{:href => '#candidate-1-endorsements'} Endorsements
     .tab-content
-      #candidate-1-feed.socialmedia.active
-        - @candidate1.feed.each do |post|
-          .post
-            %p= auto_link(post.message).html_safe
-            %p.source= post.source.capitalize
-      #candidate-1-endorsements.endorsements
-        - @candidate1.endorsements.each do |post|
-          .post
-            %p= auto_link(post.message).html_safe
-            %p.source= post.source.capitalize
+      -unless @candidate1.nil?
+        #candidate-1-feed.socialmedia.active
+          - @candidate1.feed.each do |post|
+            .post
+              %p= auto_link(post.message).html_safe
+              %p.source= post.source.capitalize
+        #candidate-1-endorsements.endorsements
+          - @candidate1.endorsements.each do |post|
+            .post
+              %p= auto_link(post.message).html_safe
+              %p.source= post.source.capitalize
   .span8
     #news.news
       %h2 News
@@ -63,7 +72,7 @@
           %p.source= article.source
           %p= article.snippet
           - article.candidates.each do |c|
-            - if c.id == @candidate1.id
+            - if @candidate1 and c.id == @candidate1.id
               %span.label.notice= c.name
             - else
               %span.label.success= c.name
@@ -74,13 +83,14 @@
       %li
         %a{:href => '#candidate-2-endorsements'} Endorsements
     .tab-content
-      #candidate-2-feed.socialmedia.active
-        - @candidate2.feed.each do |post|
-          .post
-            %p= auto_link(post.message).html_safe
-            %p.source= post.source.capitalize
-      #candidate-2-endorsements.endorsements
-        - @candidate2.endorsements.each do |post|
-          .post
-            %p= auto_link(post.message).html_safe
-            %p.source= post.source.capitalize
+      -unless @candidate1.nil?
+        #candidate-2-feed.socialmedia.active
+          - @candidate2.feed.each do |post|
+            .post
+              %p= auto_link(post.message).html_safe
+              %p.source= post.source.capitalize
+        #candidate-2-endorsements.endorsements
+          - @candidate2.endorsements.each do |post|
+            .post
+              %p= auto_link(post.message).html_safe
+              %p.source= post.source.capitalize
