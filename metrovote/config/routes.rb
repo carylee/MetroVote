@@ -1,10 +1,31 @@
 Metrovote::Application.routes.draw do
-  resources :elections
 
-  resources :positions
+  namespace :admin do
+    resources :elections do
+      resources :positions do
+        resources :candidates
+      end
+    end
+  end
+  # Sample resource route within a namespace:
+
+  resources :elections do
+    resources :positions do
+      resources :candidates
+    end
+  end
+
+  resources :positions do
+    member do
+      get 'compare'
+    end
+  end
+
 
   match 'candidates/facebook', :to => 'candidates#facebook'
   match 'candidates/contact-info', :to => 'candidates#contact_info'
+
+  match 'admin', :to => 'admin/elections#index'
 
   resources :candidates
 

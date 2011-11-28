@@ -13,7 +13,15 @@ var bios = function(){
     updateLabel();
   }
   var updateLabel = function() {
-    var label = visible ? "Hide" : "Show";
+    var label = visible ? "Hide Bios <img src='/images/chevUp.png' />" : "Show Bios <img src='/images/chevDown.png' />";
+   /* if(visible) {
+      trigger.removeClass("collapsed");
+      trigger.addClass("expanded");
+    } else {
+      trigger.addClass("collapsed");
+      trigger.removeClass("expanded");
+    } */
+    var className = visible ? "expanded" : "collapsed";
     trigger.html(label);
   }
   var init = function(){
@@ -45,6 +53,7 @@ var setContactInfo = function(url) {
   $.getJSON('/candidates/contact-info.json', {'url':url}, function(data) {
     $("input#candidate_email").val(data.email);
     $("input#candidate_phone").val(data.phone);
+    $("input#candidate_twitter").val(data.twitter);
     inputs.removeAttr("disabled");
   })
 }
@@ -54,8 +63,8 @@ $(document).ready(function() {
   bios.init();
 
   inputs = $("#candidate_name, #candidate_bio, #candidate_photo, #candidate_website, #candidate_twitter, #candidate_email");
-  inputs.attr("disabled", true);
   $("#facebook-fetch").click(function(e){
+    inputs.attr("disabled", true);
     e.preventDefault();
     var fb = $("#candidate_facebook").val();
     $.getJSON('/candidates/facebook', {'fb': fb}, function(data) {

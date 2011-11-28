@@ -6,7 +6,8 @@
 .container
   .content
     - @positions.each do |position|
-      %a.position{:href => '/positions/' + position.id.to_s}
-        %span.left.name= position.candidates[0].name
-        %span.right.name= position.candidates[1].name
-        %span.number= position.region_number
+      - if position.candidates.length > 1
+        %a.position{:href => '/positions/' + position.id.to_s}
+          %span.left.name= position.candidates[0].name
+          %span.right.name= position.candidates[1].name
+          %span.number= position.region_number

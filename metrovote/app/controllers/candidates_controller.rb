@@ -108,7 +108,14 @@ class CandidatesController < ApplicationController
 
   def scrape(website)
     doc = Nokogiri::HTML(open(website))
-    puts "worked once"
+    twitter = ''
+    doc.xpath('///a').each do |link|
+      url = link['href']
+      matches = /twitter.com(\/#!)?\/(\w*)/i.match(url)
+      unless matches.nil?
+        twitter = matches[2]
+      end
+    end
     phone_matches = /\(?\b([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})\b/i.match(doc)
     if phone_matches.nil?
       phone = ""
@@ -121,7 +128,7 @@ class CandidatesController < ApplicationController
     else
       email = email_matches[0]
     end
-    scraped = {:email => email, :phone => phone}
+    scraped = {:email => email, :phone => phone, :twitter => twitter}
     return scraped
   end
 
@@ -138,6 +145,7 @@ class CandidatesController < ApplicationController
     info = scrape(url)
     phone = info[:phone]
     email = info[:email]
+    twitter = info[:twitter]
     if info[:email].empty? or info[:phone].empty?
       contact_url = get_contact(url)
       unless contact_url.nil?
@@ -148,10 +156,13 @@ class CandidatesController < ApplicationController
         unless backup[:phone].empty?
           phone = backup[:phone]
         end
+        unless backup[:twitter].empty?
+          twitter = backup[:twitter]
+        end
       end
     end
     respond_to do |format|
-      format.json{ render :json => {:email => email, :phone => phone}.to_json }
+      format.json{ render :json => {:email => email, :phone => phone, :twitter => twitter}.to_json }
     end
   end
 

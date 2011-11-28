@@ -1,0 +1,26 @@
+=form_for([:admin, @election]) do |f|
+  -if @election.errors.any?
+    #error-explanation
+      %h2
+        = pluralize(@election.errors.count, "error")
+        prohibited this election from being saved:
+      %ul
+        =@election.errors.full_messages.each do |msg|
+          %li= msg
+  %fieldset
+    .clearfix
+      = f.label :title
+      .input
+        = f.text_field :title, :placeholder => "Ex: Seattle City Council Elections"
+    .clearfix
+      = f.label :location
+      .input
+        = f.text_field :location, :placeholder => "Ex: Seattle, WA"
+    .clearfix
+      = f.label :keyword
+      .input
+        = f.text_field :keyword, :placeholder => "Ex: seattle city council"
+        %span.help-block A phrase to help find relevant news articles
+    .actions
+      =f.submit "Save", :class => "btn primary"
+      =link_to "Cancel", elections_path, :class => "btn secondary"
