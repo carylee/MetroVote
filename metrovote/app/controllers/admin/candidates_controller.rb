@@ -24,7 +24,9 @@ class Admin::CandidatesController < CandidatesController
     respond_to do |format|
       if @candidate.save
         @candidate.fetch_data
-        format.html { redirect_to(admin_election_position_path(@position.id), :notice => 'Candidate was successfully created.') }
+        #format.html { redirect_to(admin_election_position_candidate_path(@candidate), :notice => 'Candidate was successfully created.') }
+        # the path above should work. It doesn't. I don't know why. Using below instead
+        format.html { redirect_to("/admin/elections/#{@election.id.to_s}/positions/#{@position.id.to_s}", :notice => 'Candidate was successfully created.') }
         format.xml  { render :xml => @candidate, :status => :created, :location => @candidate }
       else
         format.html { render :action => "new" }
