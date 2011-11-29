@@ -10,10 +10,14 @@
 
   %fieldset
     .clearfix
+      = f.label :website
+      .input
+        = f.text_field :website
+        %button#website-fetch.btn Fetch from Website
+    .clearfix
       = f.label :facebook
       .input
         = f.text_field :facebook
-        %button#facebook-fetch.btn Fetch from Facebook
     .clearfix
       = f.label :is_incumbent
       .input
@@ -30,10 +34,6 @@
       = f.label :photo
       .input
         = f.text_field :photo
-    .clearfix
-      = f.label :website
-      .input
-        = f.text_field :website
     .clearfix
       = f.label :email
       .input

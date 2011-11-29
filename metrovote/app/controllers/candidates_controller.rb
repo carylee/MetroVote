@@ -1,4 +1,5 @@
 require 'open-uri'
+require 'cgi'
 class CandidatesController < ApplicationController
   # GET /candidates
   # GET /candidates.xml
@@ -109,11 +110,28 @@ class CandidatesController < ApplicationController
   def scrape(website)
     doc = Nokogiri::HTML(open(website))
     twitter = ''
-    doc.xpath('///a').each do |link|
+    facebook = ''
+    doc.css('*[href*=twitter]').each do |link|
       url = link['href']
-      matches = /twitter.com(\/#!)?\/(\w*)/i.match(url)
-      unless matches.nil?
-        twitter = matches[2]
+      logger.debug(link)
+      twitter_matches = /twitter.com(\/#!)?\/(\w*)/i.match(url)
+      unless twitter_matches.nil?
+        twitter = twitter_matches[2]
+      end
+    end
+    doc.css('*[href*=facebook]').each do |link|
+      url = link['href']
+      if /facebook.com/i.match(url)
+        facebook = url
+      end
+    end
+    if facebook == ''
+      doc.css('iframe').each do |iframe|
+        uri = URI::split(iframe['src'])
+        get_params = CGI::parse(uri[7])
+        unless get_params['href'].nil?
+          facebook = get_params['href']
+        end
       end
     end
     phone_matches = /\(?\b([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})\b/i.match(doc)
@@ -128,7 +146,7 @@ class CandidatesController < ApplicationController
     else
       email = email_matches[0]
     end
-    scraped = {:email => email, :phone => phone, :twitter => twitter}
+    scraped = {:email => email, :phone => phone, :twitter => twitter, :facebook => facebook}
     return scraped
   end
 
@@ -143,9 +161,11 @@ class CandidatesController < ApplicationController
   def contact_info
     url = fix_http_if_missing params[:url]
     info = scrape(url)
+    logger.debug(info)
     phone = info[:phone]
     email = info[:email]
     twitter = info[:twitter]
+    facebook = info[:facebook]
     if info[:email].empty? or info[:phone].empty?
       contact_url = get_contact(url)
       unless contact_url.nil?
@@ -159,10 +179,13 @@ class CandidatesController < ApplicationController
         unless backup[:twitter].empty?
           twitter = backup[:twitter]
         end
+        unless backup[:facebook].empty?
+          facebook = backup[:facebook]
+        end
       end
     end
     respond_to do |format|
-      format.json{ render :json => {:email => email, :phone => phone, :twitter => twitter}.to_json }
+      format.json{ render :json => {:email => email, :phone => phone, :twitter => twitter, :facebook => facebook}.to_json }
     end
   end
 

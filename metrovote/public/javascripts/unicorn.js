@@ -47,50 +47,61 @@ var bios = function(){
   }
 }();
 
-var setContactInfo = function(url) {
-  inputs = $("input#candidate_email,input#candidate_phone");
+var setContactInfo = function() {
+  var url = $("#candidate_website").val();
+  var inputs = $("input#candidate_email,input#candidate_phone");
   inputs.attr('disabled', true);
   $.getJSON('/candidates/contact-info.json', {'url':url}, function(data) {
     $("input#candidate_email").val(data.email);
     $("input#candidate_phone").val(data.phone);
     $("input#candidate_twitter").val(data.twitter);
+    $("input#candidate_facebook").val(data.facebook);
     inputs.removeAttr("disabled");
+    loadInfoFromFacebook(data.facebook);
   })
 }
+
+var loadInfoFromFacebook = function(facebook) {
+  inputs = $("#candidate_name, #candidate_bio, #candidate_photo, #candidate_email");
+  inputs.attr("disabled", true);
+  //var fb = $("#candidate_facebook").val();
+  var fb = $("#candidate_facebook").val();
+  $.getJSON('/candidates/facebook', {'fb': fb}, function(data) {
+    //var twitter, website;
+    //if(data.website) {
+      //website_matches = data.website.match(/.*/);
+      //if(website_matches) {
+        //website = data.website.match(/.*/)[0];
+        //v = /twitter.com\/(\w{1,15})/gi;
+        //matches = v.exec(data.website);
+        //if(matches != null && matches.length > 1) {
+          //twitter = matches[1];
+        //}
+      //}
+    //}
+    $("#candidate_name").val(data.name);
+    $("#candidate_bio").val(data.bio);
+    $("#candidate_photo").val(data.picture);
+    //$("#candidate_website").val(website);
+    //$("#candidate_twitter").val(twitter);
+    inputs.removeAttr("disabled");
+    /*if(website && website != "")
+    {
+      setContactInfo(website);
+    }*/
+  });
+}
+
 
 
 $(document).ready(function() {
   bios.init();
 
-  inputs = $("#candidate_name, #candidate_bio, #candidate_photo, #candidate_website, #candidate_twitter, #candidate_email");
-  $("#facebook-fetch").click(function(e){
-    inputs.attr("disabled", true);
+  //$("#candidate_website").blur(function(){setContactInfo($(this).val());});
+  $("#website-fetch").click(function(e){
     e.preventDefault();
-    var fb = $("#candidate_facebook").val();
-    $.getJSON('/candidates/facebook', {'fb': fb}, function(data) {
-      var twitter, website;
-      if(data.website) {
-        website_matches = data.website.match(/.*/);
-        if(website_matches) {
-          website = data.website.match(/.*/)[0];
-          v = /twitter.com\/(\w{1,15})/gi;
-          matches = v.exec(data.website);
-          if(matches != null && matches.length > 1) {
-            twitter = matches[1];
-          }
-        }
-      }
-      $("#candidate_name").val(data.name);
-      $("#candidate_bio").val(data.bio);
-      $("#candidate_photo").val(data.picture);
-      $("#candidate_website").val(website);
-      $("#candidate_twitter").val(twitter);
-      inputs.removeAttr("disabled");
-      if(website && website != "")
-      {
-        setContactInfo(website);
-      }
-    });
+    setContactInfo();
   });
+
   $(".mute").click(function(){ $("body").removeClass('patriotic'); });
 })
