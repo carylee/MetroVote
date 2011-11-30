@@ -23,9 +23,9 @@
             %ul.unstyled
               %li
                 %a{:href => @candidate1.website, :target => "_blank"}= @candidate1.website
-              -if @candidate1.email
+              -unless @candidate1.email
                 %li= mail_to @candidate1.email
-              -if @candidate1.phone
+              -unless @candidate1.phone == ''
                 %li= number_to_phone(@candidate1.phone.gsub(/[^0-9]/, ''), :area_code => true)
     .span8
       -unless @candidate2.nil?
@@ -39,7 +39,7 @@
                 %a{:href => @candidate2.website, :target => "_blank"}= @candidate2.website
               -if @candidate2.email
                 %li= mail_to @candidate2.email
-              -if @candidate2.phone
+              -unless @candidate2.phone == ''
                 %li= number_to_phone(@candidate2.phone.gsub(/[^0-9]/, ''), :area_code => true)
 .row
   .span16
