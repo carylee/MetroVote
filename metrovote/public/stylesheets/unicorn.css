@@ -49,7 +49,7 @@ div.can1 h2.name {
     font-weight: bold;
     color: #404040;
     text-align:left;
-    font-family: Georgia;
+    font-family: Arial, Helvetica;
 }
 
 /* candidate name, overrides bootstrap */ 
@@ -58,7 +58,7 @@ div.can2 h2.name {
     font-weight: bold;
     color: #404040;
     text-align:right;
-    font-family: Georgia;
+    font-family: Arial, Helvetica;
 }
 
 .can1 img.portrait {
@@ -88,19 +88,19 @@ div.can2 h2.name {
   font-size: 30px;
   line-height: 20px;
   margin: 10px 0px 10px 0px;
-  font-family: Georgia;
+  font-family: Arial, Helvetica;
 }
 
 #news div.story h3 {
   font-size: 110%;
   line-height: 20px;
   margin: 8px 0px;
-  font-family: Georgia;
+  font-family: Arial, Helvetica;
 }
 
 #news div.story p {
   font-size: 90%;
-  font-family: Georgia;
+  font-family: Arial, Helvetica;
 }
 
 #news div.story p.source {
@@ -178,6 +178,7 @@ ul.tabs {
   background-color: #eee;
   margin-left: -5px;
   margin-right: -5px;
+  margin-bottom: 10px;
 /*  background-image: url('/images/chevUp.png'); */
 }
 
@@ -212,7 +213,7 @@ ul.tabs {
   background: rgba(255,255,255,.7);
   padding: 20px;
   margin: -5px;
-  margin-top: 50px;
+  margin-top: 60px;
   -webkit-border-radius: 0 0 6px 6px;
    -moz-border-radius: 0 0 6px 6px;
         border-radius: 0 0 6px 6px;
@@ -222,10 +223,29 @@ ul.tabs {
 }
 
 div.socialmedia {
+  border-top: none;
+}
+
+div.tab-content {
   clear:both;
   border-right: 3px solid #dccbb5;
   border-left: 3px solid #dccbb5;
   background: rgba(0,0,0,1);
+}
+
+.tabs > li > a {
+  border: 3px solid #dccbb5;
+  border-bottom: none;
+}
+
+.tabs > li.active > a {
+  border: 3px solid #dccbb5;
+  border-bottom: none;
+}
+
+.tabs >li > a:hover {
+  background-color: #dccbb5;
+  border-color: #dccbb5;
 }
 
 div.active {
@@ -233,18 +253,17 @@ div.active {
   background-color: rgba(255,255,255,1);
 }
 
-div.endorsements {
-  border-right: 1px solid rgba(0,0,0,.15);
-  border-left: 1px solid rgba(0,0,0,.15);
-}
+/*
 
-/*div.news{
+div.news{
   background-color:yellow;
   border-style:solid;
   border-color:black;
   border-width:5px;
   padding:15px;
-}*/
+}
+
+*/
 
 .source {
   color: #868686;
