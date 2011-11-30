@@ -13,8 +13,8 @@ class PositionsController < ApplicationController
   # GET /positions/1
   # GET /positions/1.xml
   def show
-    @positions = Position.all
     @position = Position.find(params[:id])
+    @positions = @position.election.positions
     @candidate1 = @position.candidates[0]
     @candidate2 = @position.candidates[1]
     logger.debug(@candidate1)

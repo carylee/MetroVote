@@ -22,6 +22,9 @@
                   - @positions.each do |position|
                     %li
                       %a{:href => '/positions/' + position.id.to_s}= position.title
+            - unless @position.nil?
+              %li
+                %a{:href => '#'}= @position.title
           %ul.nav.secondary-nav
             %a{:href => '/admin'} Admin
     .container

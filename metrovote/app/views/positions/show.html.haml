@@ -67,15 +67,16 @@
     #news.news
       %h2 News
       - @position.articles.each do |article|
-        .story
-          %h3= link_to(article.title, article.url)
-          %p.source= article.source
-          %p= article.snippet
-          - article.candidates.each do |c|
-            - if @candidate1 and c.id == @candidate1.id
-              %span.label.notice= c.name
-            - else
-              %span.label.success= c.name
+        -if article.visible
+          .story
+            %h3= link_to(article.title, article.url)
+            %p.source= article.source
+            %p= article.snippet
+            - article.candidates.each do |c|
+              - if @candidate1 and c.id == @candidate1.id
+                %span.label.notice= c.name
+              - else
+                %span.label.success= c.name
   .span4.feeds
     %ul.tabs{:data => {:tabs => 'tabs'}}
       %li.active
