@@ -1,1 +1,8 @@
 An automated and dynamic way to find information about candidates in a local race.
+
+What it does
+============
+
+MetroVote is an easy to configure system that automatically aggregates news and social media information about candidates and elections, with particular emphasis on local elections, and presents this information to readers in a single, concise format.
+
+MetroVote uses the Bing News, Facebook and Twitter APIs to build profiles of candidates and to track news and other information about those candidates over time. The system is easily configured simply by providing the location of the election, the title of the elected position, and the names of the candidates and links to their election web sites. Editors can customize static information, such as candidate biographies, photos, and contact information. After that, the system automatically provides readers with access to the latest news about the election and the candidates, as well as social media content from them. 
